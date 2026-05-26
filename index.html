@@ -547,16 +547,75 @@
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 20px;
   }
-  .app-search {
-    display: flex; align-items: center; gap: 6px;
-    height: 30px;
-    padding: 0 10px;
-    border: 1px solid var(--line);
-    border-radius: 6px;
+  .app-search-wrap { position: relative; }
+  .app-search-input {
+    height: 30px; width: 280px;
+    padding: 0 10px 0 28px;
+    border: 1px solid var(--line); border-radius: 6px;
     background: var(--bg-2);
-    width: 280px;
-    font-size: 11px;
-    color: var(--ink-3);
+    font-size: 11px; color: var(--ink); font-family: inherit;
+    outline: none;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .app-search-input:focus { border-color: var(--ink-3); background: white; }
+  .app-search-input::placeholder { color: var(--ink-3); }
+  .app-search-wrap > svg {
+    position: absolute; left: 9px; top: 50%; transform: translateY(-50%);
+    color: var(--ink-3); pointer-events: none;
+  }
+  .app-search-dropdown {
+    position: absolute; top: 36px; left: 0; z-index: 30;
+    width: 400px; max-width: calc(100vw - 40px);
+    background: white; border: 1px solid var(--line); border-radius: 10px;
+    box-shadow: 0 12px 32px rgba(10,10,10,0.12), 0 2px 8px rgba(10,10,10,0.06);
+    overflow: hidden; max-height: 360px; overflow-y: auto;
+    display: none;
+  }
+  .app-search-dropdown.show { display: block; }
+  .search-group-label {
+    padding: 8px 12px 4px; font-size: 9px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.12em; color: #a8a29e;
+  }
+  .search-result {
+    display: flex; align-items: center; gap: 10px;
+    width: 100%; padding: 8px 12px;
+    background: transparent; border: none; cursor: pointer;
+    text-align: left; font-family: inherit;
+    transition: background 0.1s;
+  }
+  .search-result:hover, .search-result.active { background: var(--bg-2); }
+  .search-result-ico {
+    width: 22px; height: 22px; border-radius: 5px;
+    background: var(--bg-3); color: var(--ink-2);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .search-result.active .search-result-ico { background: white; color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+  .search-result-text { flex: 1; min-width: 0; }
+  .search-result-title { font-size: 12px; font-weight: 500; color: var(--ink); }
+  .search-result-sub { font-size: 10px; color: var(--ink-3); }
+  .search-result-key {
+    font-size: 9px; padding: 2px 5px; border-radius: 4px;
+    border: 1px solid var(--line); background: white; color: var(--ink-3);
+    font-family: ui-monospace, monospace;
+  }
+  .search-empty {
+    padding: 18px 14px; text-align: center; font-size: 12px; color: var(--ink-3);
+  }
+  .search-hint-row {
+    border-top: 1px solid var(--line); background: var(--bg-2);
+    padding: 6px 12px; font-size: 10px; color: var(--ink-3);
+    display: flex; gap: 10px; align-items: center;
+  }
+  .search-hint-row kbd {
+    background: white; border: 1px solid var(--line); border-radius: 3px;
+    padding: 1px 4px; font-family: ui-monospace, monospace; font-size: 9px;
+  }
+  /* Highlight passport row when arrived via search */
+  .mat-table tr.highlight { background: var(--accent-soft) !important; animation: highlightFade 1500ms ease-out; }
+  @keyframes highlightFade {
+    0% { background: #d1fae5; }
+    100% { background: var(--accent-soft); }
   }
   .app-pill-time {
     display: inline-flex; align-items: center; gap: 6px;
@@ -1500,9 +1559,10 @@
         <!-- MAIN -->
         <div class="app-main">
           <div class="app-topbar">
-            <div class="app-search">
+            <div class="app-search-wrap">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-              Search jobs, machines, users…  ⌘K
+              <input type="text" class="app-search-input" id="appSearchInput" placeholder="Search jobs, machines, users…  ⌘K" autocomplete="off" spellcheck="false" />
+              <div class="app-search-dropdown" id="appSearchDropdown"></div>
             </div>
             <div class="app-pill-time">
               <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);"></span>
@@ -3516,6 +3576,251 @@
       const rect = hero.getBoundingClientRect();
       if (rect.bottom < 100) stickyCta.classList.add('show');
       else stickyCta.classList.remove('show');
+    });
+  }
+
+  // ===== App-demo search (command palette) =====
+  const SEARCH_INDEX = [
+    // Views
+    { cat: 'View', title: 'Compliance dashboard', sub: 'PPWR posture, EPR exposure', icon: '▦', go: 'compliance' },
+    { cat: 'View', title: 'Material passports', sub: 'Per-SKU substrate, recycled %, grade', icon: '♻', go: 'materials' },
+    { cat: 'View', title: 'EPR Forecaster', sub: 'Modulated fee what-if', icon: '€', go: 'epr' },
+    { cat: 'View', title: 'Audit Vault', sub: 'Substantiation log + export', icon: '🛡', go: 'audit' },
+    { cat: 'View', title: 'Live operator', sub: 'Job dashboard + signals', icon: '📡', go: 'live' },
+
+    // Passports
+    { cat: 'Passport', title: 'CRV-MENU-A4', sub: 'Two Cafe Menu Sheets · paperboard · 65% recycled · Grade A', icon: '♻', go: 'materials', grade: 'A', sku: 'CRV-MENU-A4' },
+    { cat: 'Passport', title: 'FLR-LAUNDRY-FORM', sub: 'Flora Laundry Form · paperboard · 30% recycled · Grade A', icon: '♻', go: 'materials', grade: 'A', sku: 'FLR-LAUNDRY-FORM' },
+    { cat: 'Passport', title: 'MOOPENS-DESIGN-BOX', sub: 'Design Box · corrugated · 22% recycled · Grade B', icon: '♻', go: 'materials', grade: 'B', sku: 'MOOPENS-DESIGN-BOX' },
+    { cat: 'Passport', title: 'PLAT-ROOM-CARD', sub: 'Platinum Room Card · multilayer · 5% recycled · Grade C · PFAS', icon: '⚠', go: 'materials', grade: 'C', sku: 'PLAT-ROOM-CARD' },
+    { cat: 'Passport', title: 'GBC-CUPCAKE-BOX', sub: 'Cupcake Box · rPET · 42% recycled · Grade A', icon: '♻', go: 'materials', grade: 'A', sku: 'GBC-CUPCAKE-BOX' },
+
+    // Substrate quick filters
+    { cat: 'Substrate', title: 'Paperboard', sub: '2 SKUs · base €0.17/kg EPR', icon: '📄', go: 'materials' },
+    { cat: 'Substrate', title: 'rPET', sub: '1 SKU · base €0.28/kg EPR', icon: '♺', go: 'materials' },
+    { cat: 'Substrate', title: 'Multilayer laminate', sub: '1 SKU · base €0.62/kg · 2038 ban risk', icon: '⚠', go: 'materials', grade: 'C' },
+    { cat: 'Substrate', title: 'Corrugated', sub: '1 SKU · base €0.14/kg EPR', icon: '📦', go: 'materials' },
+
+    // Lines / machines
+    { cat: 'Line', title: 'Line 04', sub: 'Heidelberg CD102-5LX · HD 1643 · running', icon: '⚙', go: 'live' },
+
+    // People
+    { cat: 'Person', title: 'Alex Reyes', sub: 'Operator · Shift 2 · Line 04', icon: '🧑', go: 'audit' },
+    { cat: 'Person', title: 'Admin', sub: 'Plant Administrator · admin role', icon: '🛡', go: 'audit', auditCat: 'auth' },
+
+    // Stop reasons
+    { cat: 'Stop reason', title: 'Damping roller scum', sub: 'Mechanical · Printing Unit', icon: '⚠', go: 'live' },
+    { cat: 'Stop reason', title: 'Plate change', sub: 'Consumables · Plate', icon: '⚠', go: 'live' },
+    { cat: 'Stop reason', title: 'Blanket wash', sub: 'Consumables · Blanket', icon: '⚠', go: 'live' },
+    { cat: 'Stop reason', title: 'Paper issue', sub: 'Consumables · Paper', icon: '⚠', go: 'live' },
+    { cat: 'Stop reason', title: 'Waiting for approval', sub: 'Operational · External client', icon: '⚠', go: 'live' },
+
+    // Audit categories
+    { cat: 'Audit', title: 'Auth events', sub: 'Login / logout', icon: '🛡', go: 'audit', auditCat: 'auth' },
+    { cat: 'Audit', title: 'Job events', sub: 'Start, stop, resume, finish', icon: '🛡', go: 'audit', auditCat: 'jobs' },
+    { cat: 'Audit', title: 'Material events', sub: 'Create, update, delete passports', icon: '🛡', go: 'audit', auditCat: 'materials' },
+    { cat: 'Audit', title: 'Signal anomalies', sub: 'Alert rule trips', icon: '🛡', go: 'audit', auditCat: 'signal' },
+    { cat: 'Audit', title: 'Configuration changes', sub: 'Machine, gateway, shifts, alerts', icon: '🛡', go: 'audit', auditCat: 'config' },
+  ];
+
+  const searchInput = document.getElementById('appSearchInput');
+  const searchDropdown = document.getElementById('appSearchDropdown');
+  let searchSelectedIndex = 0;
+  let currentResults = [];
+
+  function scoreField(text, q) {
+    if (!text) return 0;
+    const t = text.toLowerCase();
+    if (t === q) return 1000;
+    if (t.startsWith(q)) return 200;
+    if (t.includes(q)) return 50;
+    for (const w of t.split(/\s+/)) if (w.startsWith(q)) return 90;
+    return 0;
+  }
+
+  function searchAll(q) {
+    q = q.toLowerCase().trim();
+    if (!q) return [];
+    return SEARCH_INDEX
+      .map(item => {
+        const s = Math.max(
+          scoreField(item.title, q),
+          scoreField(item.sub, q) * 0.6,
+          scoreField(item.cat, q) * 0.5,
+        );
+        return s > 0 ? { ...item, score: s } : null;
+      })
+      .filter(Boolean)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 8);
+  }
+
+  function renderSearchDropdown() {
+    if (!searchDropdown) return;
+    const q = searchInput.value.trim();
+    if (!q) {
+      searchDropdown.innerHTML = `
+        <div class="search-empty">
+          Try <kbd>cravings</kbd>, <kbd>line 04</kbd>, <kbd>EPR</kbd>, <kbd>plate</kbd>, or <kbd>multilayer</kbd>.
+        </div>
+        <div class="search-hint-row">
+          <span><kbd>↑↓</kbd> navigate</span>
+          <span><kbd>↵</kbd> open</span>
+          <span><kbd>esc</kbd> close</span>
+        </div>
+      `;
+      return;
+    }
+    currentResults = searchAll(q);
+    if (currentResults.length === 0) {
+      searchDropdown.innerHTML = `<div class="search-empty">No matches for "${escapeHtml(q)}"</div>`;
+      return;
+    }
+    // Group by category in display order
+    const order = ['View', 'Passport', 'Substrate', 'Line', 'Person', 'Stop reason', 'Audit'];
+    const groups = new Map();
+    currentResults.forEach((r, i) => {
+      if (!groups.has(r.cat)) groups.set(r.cat, []);
+      groups.get(r.cat).push({ ...r, idx: i });
+    });
+    let html = '';
+    order.filter(c => groups.has(c)).forEach(cat => {
+      html += `<div class="search-group-label">${cat}</div>`;
+      groups.get(cat).forEach(r => {
+        html += `
+          <button class="search-result ${r.idx === searchSelectedIndex ? 'active' : ''}" data-idx="${r.idx}">
+            <span class="search-result-ico">${r.icon}</span>
+            <span class="search-result-text">
+              <span class="search-result-title">${escapeHtml(r.title)}</span>
+              <span class="search-result-sub">${escapeHtml(r.sub)}</span>
+            </span>
+            ${r.idx === searchSelectedIndex ? '<span class="search-result-key">↵</span>' : ''}
+          </button>
+        `;
+      });
+    });
+    html += `
+      <div class="search-hint-row">
+        <span><kbd>↑↓</kbd> navigate</span>
+        <span><kbd>↵</kbd> open</span>
+        <span><kbd>esc</kbd> close</span>
+      </div>
+    `;
+    searchDropdown.innerHTML = html;
+    searchDropdown.querySelectorAll('.search-result').forEach(el => {
+      el.addEventListener('click', () => {
+        const idx = parseInt(el.dataset.idx, 10);
+        pickSearchResult(currentResults[idx]);
+      });
+      el.addEventListener('mouseenter', () => {
+        searchSelectedIndex = parseInt(el.dataset.idx, 10);
+        updateSelectedClass();
+      });
+    });
+  }
+
+  function updateSelectedClass() {
+    if (!searchDropdown) return;
+    searchDropdown.querySelectorAll('.search-result').forEach(el => {
+      const idx = parseInt(el.dataset.idx, 10);
+      el.classList.toggle('active', idx === searchSelectedIndex);
+      const keySpan = el.querySelector('.search-result-key');
+      if (idx === searchSelectedIndex && !keySpan) {
+        el.insertAdjacentHTML('beforeend', '<span class="search-result-key">↵</span>');
+      } else if (idx !== searchSelectedIndex && keySpan) {
+        keySpan.remove();
+      }
+    });
+  }
+
+  function pickSearchResult(r) {
+    if (!r) return;
+    closeSearchDropdown();
+    searchInput.value = '';
+    // Apply nav + side-effects
+    if (r.grade) applyGradeFilter(r.grade);
+    if (r.auditCat) {
+      const auditFilterEl = document.getElementById('auditFilter');
+      if (auditFilterEl) {
+        auditFilterEl.value = r.auditCat;
+        auditFilterEl.dispatchEvent(new Event('change'));
+      }
+    }
+    showScreen(r.go);
+    // Highlight specific passport row
+    if (r.sku) {
+      setTimeout(() => {
+        document.querySelectorAll('#matRows tr').forEach(tr => tr.classList.remove('highlight', 'selected'));
+        const row = Array.from(document.querySelectorAll('#matRows tr')).find(tr => tr.querySelector('.mat-sku')?.textContent === r.sku);
+        if (row) {
+          row.classList.add('highlight', 'selected');
+          row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 80);
+    }
+  }
+
+  function openSearchDropdown() {
+    if (!searchDropdown) return;
+    searchDropdown.classList.add('show');
+    renderSearchDropdown();
+  }
+  function closeSearchDropdown() {
+    if (!searchDropdown) return;
+    searchDropdown.classList.remove('show');
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[c]));
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      searchSelectedIndex = 0;
+      openSearchDropdown();
+    });
+    searchInput.addEventListener('focus', openSearchDropdown);
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        searchInput.value = '';
+        closeSearchDropdown();
+        searchInput.blur();
+        return;
+      }
+      if (!searchDropdown.classList.contains('show')) return;
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (currentResults.length === 0) return;
+        searchSelectedIndex = (searchSelectedIndex + 1) % currentResults.length;
+        updateSelectedClass();
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (currentResults.length === 0) return;
+        searchSelectedIndex = (searchSelectedIndex - 1 + currentResults.length) % currentResults.length;
+        updateSelectedClass();
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        const r = currentResults[searchSelectedIndex];
+        if (r) pickSearchResult(r);
+      }
+    });
+    document.addEventListener('mousedown', (e) => {
+      if (!searchInput.closest('.app-search-wrap').contains(e.target)) {
+        closeSearchDropdown();
+      }
+    });
+    // Cmd/Ctrl+K to focus the demo's search
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        const rect = document.getElementById('appFrame')?.getBoundingClientRect();
+        if (rect && rect.top < window.innerHeight && rect.bottom > 0) {
+          e.preventDefault();
+          searchInput.focus();
+          searchInput.select();
+        }
+      }
     });
   }
 
