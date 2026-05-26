@@ -1,0 +1,3558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PPWR 2030 · The New Rules of Packaging | OEEpulse</title>
+<meta name="description" content="Everything manufacturers need to know about the EU Packaging and Packaging Waste Regulation (PPWR), and how OEEpulse turns compliance into competitive advantage." />
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="%230a0a0a"/><text x="50%25" y="55%25" dominant-baseline="middle" text-anchor="middle" font-family="Inter,sans-serif" font-size="20" font-weight="800" fill="white">O</text></svg>' />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="OEEpulse · PPWR Edition" />
+<meta property="og:description" content="Turn PPWR pressure into measurable margin. Material passports, EPR forecasting, audit-ready substantiation for EU packaging manufacturers." />
+<meta property="og:site_name" content="OEEpulse" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "OEEpulse",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Windows, macOS, Linux",
+  "description": "PPWR compliance and OEE platform for packaging manufacturers. Material passports, EPR fee forecasting, audit vault, real-time line monitoring.",
+  "offers": { "@type": "Offer", "priceCurrency": "EUR" }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-2: #fafaf9;
+    --bg-3: #f5f5f4;
+    --ink: #0a0a0a;
+    --ink-2: #525252;
+    --ink-3: #737373;
+    --line: #e7e5e4;
+    --line-2: #d6d3d1;
+    --accent: #047857;
+    --accent-soft: #ecfdf5;
+    --accent-border: #a7f3d0;
+    --blue: #2563eb;
+    --blue-soft: #eff6ff;
+    --amber: #b45309;
+    --amber-soft: #fffbeb;
+    --rose: #be123c;
+    --rose-soft: #fff1f2;
+    --shadow-sm: 0 1px 2px rgba(10, 10, 10, 0.04);
+    --shadow-md: 0 4px 12px rgba(10, 10, 10, 0.05), 0 1px 2px rgba(10, 10, 10, 0.04);
+    --shadow-lg: 0 12px 32px rgba(10, 10, 10, 0.06), 0 2px 4px rgba(10, 10, 10, 0.04);
+    --shadow-xl: 0 24px 60px rgba(10, 10, 10, 0.08), 0 4px 8px rgba(10, 10, 10, 0.04);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  a { color: inherit; text-decoration: none; }
+  .serif { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 32px;
+    backdrop-filter: saturate(180%) blur(20px);
+    background: rgba(255, 255, 255, 0.78);
+    border-bottom: 1px solid var(--line);
+  }
+  .logo {
+    font-weight: 700; font-size: 16px; letter-spacing: -0.02em;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .logo-mark {
+    width: 22px; height: 22px; border-radius: 6px;
+    background: var(--ink); color: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 800;
+  }
+  .nav-links { display: flex; gap: 28px; font-size: 14px; color: var(--ink-2); font-weight: 500; }
+  .nav-links a { transition: color 0.15s; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    background: var(--ink); color: var(--bg); padding: 9px 16px; border-radius: 8px;
+    font-weight: 500; font-size: 13px; transition: opacity 0.15s; box-shadow: var(--shadow-sm);
+  }
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    min-height: 92vh; padding: 140px 32px 80px;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; position: relative; overflow: hidden;
+    background: var(--bg);
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, black 30%, transparent 80%);
+    opacity: 0.5;
+  }
+  .hero > * { position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 5px 12px 5px 6px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 12px; color: var(--ink-2); margin-bottom: 28px;
+    background: var(--bg); box-shadow: var(--shadow-sm); font-weight: 500;
+  }
+  .hero-badge .tag {
+    background: var(--accent-soft); color: var(--accent); padding: 2px 8px; border-radius: 999px;
+    font-size: 11px; font-weight: 600;
+  }
+  h1 {
+    font-size: clamp(40px, 6.5vw, 76px); line-height: 1.02; letter-spacing: -0.035em;
+    font-weight: 700; max-width: 920px; margin-bottom: 24px; color: var(--ink);
+  }
+  .hero p.sub {
+    font-size: clamp(16px, 1.4vw, 19px); color: var(--ink-2); max-width: 620px; margin-bottom: 36px;
+    line-height: 1.55;
+  }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .btn-primary {
+    background: var(--ink); color: var(--bg); padding: 12px 22px; border-radius: 10px;
+    font-weight: 500; font-size: 14px; transition: all 0.15s;
+    display: inline-flex; align-items: center; gap: 6px; box-shadow: var(--shadow-md);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+  .btn-ghost {
+    border: 1px solid var(--line-2); color: var(--ink); padding: 12px 22px; border-radius: 10px;
+    font-weight: 500; font-size: 14px; transition: all 0.15s;
+    background: var(--bg); display: inline-flex; align-items: center; gap: 6px;
+  }
+  .btn-ghost:hover { background: var(--bg-2); border-color: var(--ink-3); }
+
+  .countdown {
+    margin-top: 56px; display: flex; gap: 8px; align-items: stretch; flex-wrap: wrap; justify-content: center;
+    background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 8px;
+    box-shadow: var(--shadow-md);
+  }
+  .count-box {
+    padding: 14px 22px; min-width: 90px;
+    border-radius: 8px; background: var(--bg-2);
+  }
+  .count-num { font-size: 28px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  .count-label { font-size: 11px; color: var(--ink-3); margin-top: 2px; font-weight: 500; }
+  .count-deadline {
+    padding: 14px 22px; background: var(--accent); color: var(--bg); border-radius: 8px;
+    display: flex; flex-direction: column; justify-content: center;
+    font-size: 12px; font-weight: 500; line-height: 1.3; text-align: left;
+  }
+  .count-deadline strong { font-weight: 600; }
+
+  /* ---------- SECTIONS ---------- */
+  section { padding: 110px 32px; position: relative; }
+  .container { max-width: 1160px; margin: 0 auto; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 500; color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .eyebrow::before {
+    content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+  }
+  h2 {
+    font-size: clamp(30px, 4vw, 48px); line-height: 1.08; letter-spacing: -0.025em;
+    font-weight: 600; margin-bottom: 18px; max-width: 760px; color: var(--ink);
+  }
+  .lead { font-size: 17px; color: var(--ink-2); max-width: 680px; margin-bottom: 56px; line-height: 1.55; }
+
+  /* ---------- WHAT IS PPWR ---------- */
+  .what-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;
+  }
+  .stat-card {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 28px;
+    transition: all 0.2s; box-shadow: var(--shadow-sm);
+  }
+  .stat-card:hover { box-shadow: var(--shadow-lg); border-color: var(--line-2); }
+  .stat-pill {
+    display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 9px;
+    border-radius: 999px; margin-bottom: 16px;
+  }
+  .stat-card.green .stat-pill { background: var(--accent-soft); color: var(--accent); }
+  .stat-card.blue .stat-pill { background: var(--blue-soft); color: var(--blue); }
+  .stat-card.amber .stat-pill { background: var(--amber-soft); color: var(--amber); }
+  .stat-card.rose .stat-pill { background: var(--rose-soft); color: var(--rose); }
+  .stat-num { font-size: 40px; font-weight: 700; letter-spacing: -0.03em; color: var(--ink); line-height: 1; }
+  .stat-label { color: var(--ink-2); font-size: 14px; margin-top: 10px; line-height: 1.5; }
+
+  /* ---------- TIMELINE ---------- */
+  .timeline-wrap { position: relative; padding-left: 28px; max-width: 760px; }
+  .timeline-wrap::before {
+    content: ''; position: absolute; left: 7px; top: 10px; bottom: 10px; width: 1.5px;
+    background: var(--line-2);
+  }
+  .tl-item { position: relative; padding-bottom: 44px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before {
+    content: ''; position: absolute; left: -25px; top: 8px; width: 11px; height: 11px;
+    border-radius: 50%; background: var(--bg); border: 2px solid var(--accent);
+  }
+  .tl-item.passed::before { background: var(--accent); }
+  .tl-year {
+    font-size: 11px; font-weight: 600; color: var(--ink-3); letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .tl-title { font-size: 20px; font-weight: 600; margin: 6px 0 8px; letter-spacing: -0.015em; }
+  .tl-desc { color: var(--ink-2); font-size: 15px; line-height: 1.6; }
+  .tl-tag {
+    display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 500;
+    background: var(--accent-soft); color: var(--accent); margin-top: 12px;
+  }
+
+  /* ---------- PRESSURE / SOLUTION ---------- */
+  .split {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: stretch;
+  }
+  @media (max-width: 820px) { .split { grid-template-columns: 1fr; } }
+  .pressure-card, .solution-card {
+    border-radius: 16px; padding: 36px; border: 1px solid var(--line);
+    background: var(--bg); box-shadow: var(--shadow-sm);
+  }
+  .solution-card {
+    background: linear-gradient(180deg, var(--accent-soft) 0%, var(--bg) 60%);
+    border-color: var(--accent-border);
+  }
+  .card-label {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 600; margin-bottom: 14px;
+    padding: 4px 10px; border-radius: 999px;
+  }
+  .pressure-card .card-label { background: var(--rose-soft); color: var(--rose); }
+  .solution-card .card-label { background: var(--accent); color: var(--bg); }
+  .card-title { font-size: 24px; font-weight: 600; margin-bottom: 22px; letter-spacing: -0.02em; }
+  .check-list { list-style: none; }
+  .check-list li {
+    padding: 12px 0; display: flex; gap: 12px; align-items: flex-start;
+    border-bottom: 1px solid var(--line);
+    font-size: 14.5px; color: var(--ink-2);
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list li strong { color: var(--ink); font-weight: 600; }
+  .check-list .ico {
+    flex-shrink: 0; width: 20px; height: 20px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700;
+    margin-top: 2px;
+  }
+  .pressure-card .ico { background: var(--rose-soft); color: var(--rose); }
+  .solution-card .ico { background: var(--accent); color: var(--bg); }
+
+  /* ---------- PRODUCT HERO ---------- */
+  .product-hero {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 56px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  .product-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+  }
+  @media (max-width: 900px) { .product-grid { grid-template-columns: 1fr; } .product-hero { padding: 36px; } }
+  .product-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; color: var(--ink-2); margin-bottom: 16px;
+    padding: 5px 12px; border-radius: 999px; background: var(--bg-2); border: 1px solid var(--line);
+    font-weight: 500;
+  }
+  .product-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .product-title { font-size: 36px; font-weight: 600; line-height: 1.1; margin-bottom: 16px; letter-spacing: -0.025em; }
+  .product-desc { color: var(--ink-2); font-size: 16px; margin-bottom: 28px; line-height: 1.6; }
+
+  /* dashboard mock */
+  .dash {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 22px;
+    box-shadow: var(--shadow-xl);
+  }
+  .dash-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+  .dash-title { font-size: 13px; color: var(--ink-2); font-weight: 500; }
+  .dash-live {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 11px; color: var(--accent); font-weight: 500;
+    background: var(--accent-soft); padding: 4px 10px; border-radius: 999px;
+  }
+  .pulse { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(4, 120, 87, 0.5); }
+    50% { box-shadow: 0 0 0 6px rgba(4, 120, 87, 0); }
+  }
+  .oee-display { display: flex; align-items: baseline; gap: 14px; margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+  .oee-big { font-size: 52px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; letter-spacing: -0.03em; line-height: 1; }
+  .oee-trend { font-size: 13px; color: var(--accent); font-weight: 500; }
+  .oee-label { font-size: 10px; color: var(--ink-3); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+  .metric-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 18px; }
+  .metric { background: var(--bg-2); border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+  .metric-name { font-size: 10px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+  .metric-val { font-size: 19px; font-weight: 700; margin-top: 4px; letter-spacing: -0.02em; }
+  .metric-bar { height: 4px; background: var(--line); border-radius: 2px; margin-top: 8px; overflow: hidden; }
+  .metric-fill { height: 100%; background: var(--accent); border-radius: 2px; animation: fill 1.5s ease-out; }
+  @keyframes fill { from { width: 0; } }
+
+  .waste-block {
+    background: var(--accent-soft); border: 1px solid var(--accent-border);
+    border-radius: 10px; padding: 14px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .waste-block .label { font-size: 11px; color: var(--ink-3); font-weight: 500; }
+  .waste-block .val { font-size: 17px; font-weight: 700; color: var(--accent); margin-top: 2px; letter-spacing: -0.01em; }
+
+  /* ---------- FEATURE GRID ---------- */
+  .feat-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 8px;
+  }
+  .feat {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 28px;
+    transition: all 0.2s; box-shadow: var(--shadow-sm);
+  }
+  .feat:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); border-color: var(--line-2); }
+  .feat-ico {
+    width: 38px; height: 38px; border-radius: 9px; background: var(--bg-3);
+    display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 16px;
+    border: 1px solid var(--line);
+  }
+  .feat h3 { font-size: 17px; margin-bottom: 6px; font-weight: 600; letter-spacing: -0.01em; }
+  .feat p { color: var(--ink-2); font-size: 14px; line-height: 1.55; }
+  .feat .ppwr-link {
+    margin-top: 16px; font-size: 12px; color: var(--accent); display: inline-flex; align-items: center; gap: 4px;
+    font-weight: 500; padding: 4px 10px; background: var(--accent-soft); border-radius: 6px;
+  }
+
+  /* ---------- ROI ---------- */
+  .roi {
+    background: var(--ink); color: var(--bg); border-radius: 20px; padding: 56px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .roi::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 20%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 20%, transparent 80%);
+  }
+  .roi > * { position: relative; z-index: 1; }
+  .roi .eyebrow { color: #6ee7b7; }
+  .roi .eyebrow::before { background: #6ee7b7; }
+  .roi h2 { color: var(--bg); margin: 0 auto 14px; }
+  .roi p { color: rgba(255, 255, 255, 0.65); max-width: 540px; margin: 0 auto; font-size: 16px; }
+  .roi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 24px; margin-top: 44px; }
+  .roi-cell { padding: 8px; }
+  .roi-num { font-size: 48px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+  .roi .grn { color: #6ee7b7; }
+  .roi .blu { color: #93c5fd; }
+  .roi .prp { color: #c4b5fd; }
+  .roi .ylw { color: #fcd34d; }
+  .roi-label { color: rgba(255, 255, 255, 0.6); font-size: 13px; margin-top: 8px; }
+
+  /* ---------- FAQ ---------- */
+  .faq-item {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 22px 26px;
+    margin-bottom: 10px; cursor: pointer; transition: all 0.15s;
+  }
+  .faq-item:hover { border-color: var(--line-2); }
+  .faq-item.open { border-color: var(--ink); box-shadow: var(--shadow-md); }
+  .faq-q { display: flex; justify-content: space-between; align-items: center; font-weight: 500; font-size: 16px; color: var(--ink); }
+  .faq-toggle {
+    flex-shrink: 0; width: 22px; height: 22px; border-radius: 6px; background: var(--bg-2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: var(--ink-2); transition: all 0.25s; border: 1px solid var(--line);
+  }
+  .faq-item.open .faq-toggle { transform: rotate(45deg); background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .faq-a { color: var(--ink-2); margin-top: 0; max-height: 0; overflow: hidden; transition: all 0.3s ease; font-size: 14.5px; line-height: 1.6; }
+  .faq-item.open .faq-a { margin-top: 14px; max-height: 320px; }
+
+  /* ---------- FINAL CTA ---------- */
+  .final-cta {
+    background: var(--accent-soft); border: 1px solid var(--accent-border);
+    color: var(--ink); border-radius: 20px; padding: 64px 48px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .final-cta h2 { margin: 0 auto 14px; max-width: 640px; }
+  .final-cta p { color: var(--ink-2); font-size: 17px; margin-bottom: 32px; max-width: 540px; margin-left: auto; margin-right: auto; }
+
+  /* ---------- FOOTER ---------- */
+  footer { padding: 40px 32px; border-top: 1px solid var(--line); color: var(--ink-3); font-size: 13px; background: var(--bg-2); }
+  .footer-row { max-width: 1160px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .footer-row a:hover { color: var(--ink); }
+
+  /* ---------- BG VARIANT ---------- */
+  .bg-2 { background: var(--bg-2); }
+  .bg-2 .stat-card, .bg-2 .feat, .bg-2 .faq-item { background: var(--bg); }
+
+  @media (max-width: 720px) {
+    nav { padding: 12px 16px; }
+    .nav-links { display: none; }
+    section { padding: 70px 20px; }
+    .hero { padding: 120px 20px 60px; }
+    .product-hero { padding: 28px; }
+    .final-cta { padding: 44px 24px; }
+    .roi { padding: 40px 24px; }
+  }
+
+  /* ============================================================
+     INTERACTIVE APP DEMO
+     ============================================================ */
+  .demo-intro {
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 760px) { .demo-intro { flex-direction: column; align-items: flex-start; } }
+  .demo-intro h2 { margin-bottom: 8px; }
+  .demo-hint {
+    display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px;
+    background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-border);
+    border-radius: 999px; font-size: 12px; font-weight: 500;
+  }
+  .demo-hint .kbd {
+    background: white; padding: 2px 6px; border-radius: 4px; border: 1px solid var(--accent-border);
+    font-family: ui-monospace, monospace; font-size: 10px;
+  }
+
+  .app-frame {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    display: flex; flex-direction: column;
+    min-height: 720px;
+  }
+  .app-titlebar {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px;
+    background: linear-gradient(180deg, #f5f5f4, #e7e5e4);
+    border-bottom: 1px solid var(--line);
+  }
+  .traffic { display: flex; gap: 6px; }
+  .traffic span {
+    width: 12px; height: 12px; border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+  .traffic span:nth-child(1) { background: #ff5f57; }
+  .traffic span:nth-child(2) { background: #febc2e; }
+  .traffic span:nth-child(3) { background: #28c840; }
+  .app-titlebar-title {
+    flex: 1; text-align: center; font-size: 11px; color: var(--ink-3);
+    font-weight: 500;
+  }
+  .app-titlebar .url {
+    font-family: ui-monospace, monospace;
+    font-size: 10px;
+    color: var(--ink-3);
+  }
+
+  .app-shell {
+    display: flex; flex: 1; min-height: 0;
+  }
+  .app-sidebar {
+    width: 200px; flex-shrink: 0;
+    background: rgba(250, 250, 249, 0.6);
+    border-right: 1px solid var(--line);
+    display: flex; flex-direction: column;
+    padding: 16px 8px;
+    gap: 12px;
+  }
+  .app-logo {
+    display: flex; align-items: center; gap: 8px; padding: 4px 8px 8px;
+  }
+  .app-logo-mark {
+    width: 26px; height: 26px; border-radius: 6px; background: var(--ink); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 13px;
+  }
+  .app-logo-name { font-weight: 600; font-size: 14px; letter-spacing: -0.01em; }
+  .app-logo-tag { font-size: 9px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 2px; display: flex; align-items: center; gap: 4px; }
+  .app-leaf { width: 9px; height: 9px; color: var(--accent); }
+
+  .app-nav-section { display: flex; flex-direction: column; gap: 2px; }
+  .app-nav-label {
+    padding: 4px 10px;
+    font-size: 9px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.12em; color: #a8a29e;
+  }
+  .app-nav-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 10px; border-radius: 6px;
+    background: transparent; border: none; cursor: pointer;
+    font-size: 13px; font-weight: 500; color: var(--ink-2);
+    transition: all 0.15s;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+  }
+  .app-nav-item:hover { background: rgba(255,255,255,0.7); color: var(--ink); }
+  .app-nav-item.active {
+    background: white;
+    color: var(--ink);
+    box-shadow: 0 1px 2px rgba(10,10,10,0.05);
+  }
+  .app-nav-item .ico {
+    width: 16px; height: 16px; color: #a8a29e;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .app-nav-item.active .ico { color: var(--accent); }
+
+  .app-user-card {
+    margin-top: auto;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: white;
+  }
+  .app-user-row { display: flex; align-items: center; gap: 10px; }
+  .app-avatar {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--ink); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 600;
+  }
+  .app-user-name { font-size: 12px; font-weight: 600; }
+  .app-user-role { font-size: 10px; color: var(--ink-3); display: flex; align-items: center; gap: 4px; }
+
+  .app-main {
+    flex: 1; min-width: 0;
+    display: flex; flex-direction: column;
+    background: var(--bg-2);
+  }
+  .app-topbar {
+    height: 52px;
+    border-bottom: 1px solid var(--line);
+    background: white;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 20px;
+  }
+  .app-search {
+    display: flex; align-items: center; gap: 6px;
+    height: 30px;
+    padding: 0 10px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--bg-2);
+    width: 280px;
+    font-size: 11px;
+    color: var(--ink-3);
+  }
+  .app-pill-time {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border: 1px solid var(--accent-border);
+    border-radius: 999px;
+    font-size: 11px; font-weight: 500;
+  }
+
+  .app-screen { padding: 24px; display: none; flex: 1; overflow: auto; }
+  .app-screen.active { display: block; }
+
+  .app-screen-header {
+    padding-bottom: 18px; border-bottom: 1px solid var(--line);
+    margin-bottom: 20px; background: white;
+    margin: -24px -24px 20px;
+    padding: 18px 24px;
+    display: flex; align-items: flex-start; justify-content: space-between;
+  }
+  .app-screen-header h3 {
+    font-size: 22px; font-weight: 600; letter-spacing: -0.025em; margin-top: 4px;
+  }
+  .app-eyebrow {
+    font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--accent);
+  }
+  .app-eyebrow.neutral { color: var(--ink-3); }
+  .app-screen-sub { font-size: 13px; color: var(--ink-2); margin-top: 4px; }
+
+  .app-grid { display: grid; gap: 14px; }
+  .app-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .app-grid.cols-12 { grid-template-columns: repeat(12, 1fr); }
+  @media (max-width: 900px) {
+    .app-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    .app-grid.cols-12 { grid-template-columns: 1fr; }
+  }
+  .col-5 { grid-column: span 5; }
+  .col-7 { grid-column: span 7; }
+  .col-12 { grid-column: span 12; }
+  @media (max-width: 900px) { .col-5, .col-7, .col-12 { grid-column: span 1; } }
+
+  .app-card {
+    background: white; border: 1px solid var(--line); border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+  }
+  .app-card-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 18px 8px;
+  }
+  .app-card-title { font-size: 13px; font-weight: 600; letter-spacing: -0.01em; }
+  .app-card-body { padding: 8px 18px 18px; }
+
+  /* KPI card click drilldown */
+  .kpi-card {
+    cursor: pointer; transition: all 0.2s; background: white; border: 1px solid var(--line);
+    border-radius: 12px; padding: 18px; box-shadow: var(--shadow-sm);
+    text-align: left; font-family: inherit;
+  }
+  .kpi-card:hover {
+    transform: translateY(-2px);
+    border-color: #a8a29e;
+    box-shadow: var(--shadow-md);
+  }
+  .kpi-ico {
+    width: 30px; height: 30px; border-radius: 7px;
+    display: inline-flex; align-items: center; justify-content: center; font-size: 14px;
+  }
+  .kpi-ico.green { background: var(--accent-soft); color: var(--accent); }
+  .kpi-ico.amber { background: var(--amber-soft); color: var(--amber); }
+  .kpi-ico.blue { background: var(--blue-soft); color: var(--blue); }
+  .kpi-ico.rose { background: var(--rose-soft); color: var(--rose); }
+  .kpi-row { display: flex; justify-content: space-between; align-items: flex-start; }
+  .kpi-status {
+    font-size: 9px; font-weight: 600; padding: 3px 8px; border-radius: 999px;
+  }
+  .kpi-status.ok { background: var(--accent-soft); color: var(--accent); }
+  .kpi-status.warn { background: var(--amber-soft); color: var(--amber); }
+  .kpi-label { font-size: 9px; font-weight: 600; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 12px; }
+  .kpi-value { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; margin-top: 2px; }
+  .kpi-target { font-size: 10px; color: var(--ink-3); }
+  .kpi-sub { font-size: 11px; color: var(--ink-2); margin-top: 8px; }
+
+  /* DfR distribution */
+  .dfr-bar {
+    height: 12px; border-radius: 999px; background: #f5f5f4;
+    display: flex; overflow: hidden;
+  }
+  .dfr-seg { height: 100%; transition: opacity 0.2s; }
+  .dfr-seg.a { background: var(--accent); }
+  .dfr-seg.b { background: #fbbf24; }
+  .dfr-seg.c { background: #f87171; }
+
+  .grade-stat {
+    border: 1px solid var(--line); background: var(--bg-2); border-radius: 8px; padding: 10px;
+    cursor: pointer; transition: all 0.15s;
+    text-align: left; font-family: inherit;
+  }
+  .grade-stat:hover { background: white; border-color: var(--ink-3); }
+  .grade-stat-label {
+    font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-3); display: flex; align-items: center; gap: 6px;
+  }
+  .grade-stat-num { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; margin-top: 4px; }
+  .grade-stat-num.a { color: var(--accent); }
+  .grade-stat-num.b { color: var(--amber); }
+  .grade-stat-num.c { color: var(--rose); }
+  .grade-stat-pct { font-size: 10px; color: var(--ink-3); }
+
+  /* SKUs at risk */
+  .risk-row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: white; margin-bottom: 6px;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: left; font-family: inherit; width: 100%;
+  }
+  .risk-row:hover { border-color: #fca5a5; background: #fff5f5; }
+  .risk-ico { color: var(--rose); flex-shrink: 0; }
+  .risk-info { flex: 1; min-width: 0; }
+  .risk-sku { font-size: 13px; font-weight: 600; }
+  .risk-sub { font-size: 11px; color: var(--ink-3); }
+  .risk-pill {
+    font-size: 10px; font-weight: 500; background: var(--rose-soft); color: var(--rose);
+    padding: 3px 8px; border-radius: 999px; border: 1px solid #fecdd3;
+  }
+
+  .quick-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  @media (max-width: 900px) { .quick-actions { grid-template-columns: repeat(2, 1fr); } }
+  .quick-action {
+    text-align: left; font-family: inherit; padding: 14px;
+    border: 1px solid var(--line); border-radius: 10px; background: white;
+    cursor: pointer; transition: all 0.15s;
+    display: flex; gap: 10px;
+  }
+  .quick-action:hover { border-color: var(--accent-border); background: rgba(236, 253, 245, 0.3); }
+  .quick-action-ico {
+    width: 32px; height: 32px; border-radius: 7px;
+    background: var(--bg-3); color: var(--ink-2);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .quick-action-title { font-size: 12px; font-weight: 600; }
+  .quick-action-body { font-size: 11px; color: var(--ink-2); margin-top: 2px; }
+
+  /* Materials table */
+  .mat-toolbar { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+  .filter-chips { display: flex; gap: 4px; padding: 3px; background: var(--bg-2); border: 1px solid var(--line); border-radius: 6px; }
+  .filter-chip {
+    background: transparent; border: none; cursor: pointer;
+    padding: 4px 10px; font-size: 11px; font-weight: 500;
+    color: var(--ink-3); border-radius: 4px;
+    font-family: inherit;
+  }
+  .filter-chip:hover { color: var(--ink); }
+  .filter-chip.active {
+    background: white; color: var(--ink);
+    box-shadow: 0 1px 2px rgba(10,10,10,0.05);
+  }
+
+  .mat-table {
+    background: white; border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
+  }
+  .mat-table table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .mat-table thead { background: var(--bg-2); }
+  .mat-table th {
+    text-align: left; padding: 9px 12px;
+    font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-3); border-bottom: 1px solid var(--line);
+  }
+  .mat-table th.right { text-align: right; }
+  .mat-table td {
+    padding: 10px 12px; border-bottom: 1px solid var(--line);
+    vertical-align: middle;
+  }
+  .mat-table tr:last-child td { border-bottom: none; }
+  .mat-table tr { cursor: pointer; transition: background 0.1s; }
+  .mat-table tr:hover { background: #fafaf9; }
+  .mat-table tr.selected { background: var(--accent-soft); }
+  .mat-table td.right { text-align: right; font-variant-numeric: tabular-nums; }
+  .mat-sku { font-weight: 600; font-family: ui-monospace, monospace; font-size: 11px; }
+  .mat-name { font-size: 11px; color: var(--ink-2); margin-top: 2px; }
+  .mat-pill {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 3px 8px; border-radius: 999px; border: 1px solid; font-size: 10px; font-weight: 500;
+  }
+  .mat-pill.green { background: var(--accent-soft); color: var(--accent); border-color: var(--accent-border); }
+  .mat-pill.amber { background: var(--amber-soft); color: var(--amber); border-color: #fde68a; }
+  .mat-pill.rose { background: var(--rose-soft); color: var(--rose); border-color: #fecdd3; }
+  .mat-pill.neutral { background: var(--bg-2); color: var(--ink-2); border-color: var(--line); }
+
+  /* EPR Forecaster */
+  .epr-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 14px; }
+  @media (max-width: 900px) { .epr-grid { grid-template-columns: 1fr; } }
+  .epr-select {
+    width: 100%; height: 38px; padding: 0 12px;
+    border: 1px solid var(--line); border-radius: 8px; background: var(--bg-2);
+    font-size: 13px; font-family: inherit;
+  }
+  .epr-field { margin-top: 14px; }
+  .epr-field-label {
+    font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-3); margin-bottom: 4px;
+  }
+  .epr-slider { width: 100%; accent-color: var(--accent); }
+  .epr-mini-card {
+    background: var(--bg-2); border: 1px solid var(--line); border-radius: 8px; padding: 10px;
+  }
+  .epr-mini-label {
+    font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-3);
+  }
+  .epr-mini-val { font-size: 13px; font-weight: 700; margin-top: 2px; }
+
+  .epr-result-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; }
+  @media (max-width: 600px) { .epr-result-grid { grid-template-columns: 1fr; } }
+  .epr-result {
+    border: 1px solid; border-radius: 10px; padding: 14px;
+  }
+  .epr-result.neutral { background: var(--bg-2); border-color: var(--line); color: var(--ink); }
+  .epr-result.green { background: var(--accent-soft); border-color: var(--accent-border); color: var(--accent); }
+  .epr-result.amber { background: var(--amber-soft); border-color: #fde68a; color: var(--amber); }
+  .epr-result.rose { background: var(--rose-soft); border-color: #fecdd3; color: var(--rose); }
+  .epr-result-label {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .epr-result-val { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; margin-top: 6px; letter-spacing: -0.02em; }
+  .epr-result-sub { font-size: 10px; opacity: 0.75; margin-top: 4px; }
+
+  .suggestions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; }
+  @media (max-width: 800px) { .suggestions { grid-template-columns: 1fr; } }
+  .suggestion {
+    background: white; border: 1px solid var(--line); border-radius: 10px; padding: 14px;
+  }
+  .suggestion-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .suggestion-title { font-size: 13px; font-weight: 600; }
+  .suggestion-body { font-size: 11px; color: var(--ink-2); margin-top: 4px; }
+
+  /* Live operator */
+  .live-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 14px; }
+  @media (max-width: 900px) { .live-grid { grid-template-columns: 1fr; } }
+  .ppwr-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; }
+  .ppwr-tile {
+    padding: 10px;
+    border: 1px solid var(--accent-border);
+    background: var(--accent-soft);
+    border-radius: 8px;
+    color: #064e3b;
+  }
+  .ppwr-tile-label {
+    font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+    opacity: 0.8;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .ppwr-tile-val { font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; margin-top: 2px; }
+  .ppwr-tile-hint { font-size: 9px; opacity: 0.7; }
+
+  .live-metrics-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 14px; }
+  .live-metric-label {
+    font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-3);
+  }
+  .live-metric-val {
+    font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em; margin-top: 4px;
+  }
+  .live-metric-hint { font-size: 10px; color: var(--ink-3); margin-top: 2px; }
+
+  .progress-track {
+    height: 8px; background: var(--bg-3); border-radius: 999px; overflow: hidden;
+    margin-top: 6px;
+  }
+  .progress-fill {
+    height: 100%; background: var(--accent); border-radius: 999px;
+    transition: width 0.3s;
+  }
+
+  .live-actions { display: flex; gap: 8px; margin-top: 18px; flex-wrap: wrap; }
+  .live-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 10px 18px;
+    border-radius: 8px; border: none; cursor: pointer;
+    font-size: 13px; font-weight: 500;
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+  .live-btn.brand { background: var(--accent); color: white; }
+  .live-btn.brand:hover { background: #065f46; }
+  .live-btn.warn { background: #f59e0b; color: white; }
+  .live-btn.warn:hover { background: #d97706; }
+  .live-btn.primary { background: var(--ink); color: white; }
+  .live-btn.primary:hover { background: #262626; }
+  .live-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .timeline-events { display: flex; flex-direction: column; gap: 2px; }
+  .timeline-event {
+    display: flex; align-items: center; gap: 10px; padding: 6px 8px;
+    border-radius: 6px;
+  }
+  .timeline-event:hover { background: var(--bg-2); }
+  .timeline-time {
+    font-size: 11px; color: var(--ink-3); width: 50px;
+    font-variant-numeric: tabular-nums;
+  }
+  .timeline-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .timeline-dot.start { background: var(--blue); }
+  .timeline-dot.stop { background: var(--rose); }
+  .timeline-dot.resume { background: var(--accent); }
+  .timeline-dot.info { background: #d6d3d1; }
+  .timeline-event-label { font-size: 12px; color: var(--ink-2); flex: 1; }
+
+  /* Audit Vault */
+  .audit-table {
+    background: white; border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
+  }
+  .audit-table table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .audit-table th {
+    text-align: left; padding: 8px 12px;
+    background: var(--bg-2);
+    font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-3); border-bottom: 1px solid var(--line);
+  }
+  .audit-table td { padding: 8px 12px; border-bottom: 1px solid var(--line); }
+  .audit-table tr:last-child td { border-bottom: none; }
+  .audit-table .ts { color: var(--ink-3); font-variant-numeric: tabular-nums; font-size: 11px; }
+  .audit-table .actor { font-size: 12px; }
+  .audit-pill {
+    display: inline-block;
+    padding: 3px 8px; border-radius: 999px;
+    border: 1px solid;
+    font-size: 10px; font-weight: 500;
+  }
+  .audit-pill.green { background: var(--accent-soft); color: var(--accent); border-color: var(--accent-border); }
+  .audit-pill.blue { background: var(--blue-soft); color: var(--blue); border-color: #bfdbfe; }
+  .audit-pill.amber { background: var(--amber-soft); color: var(--amber); border-color: #fde68a; }
+  .audit-pill.rose { background: var(--rose-soft); color: var(--rose); border-color: #fecdd3; }
+  .audit-pill.neutral { background: var(--bg-2); color: var(--ink-2); border-color: var(--line); }
+
+  /* Action buttons */
+  .btn-icon-row { display: flex; gap: 4px; justify-content: flex-end; }
+  .btn-icon {
+    background: transparent; border: none; cursor: pointer;
+    padding: 4px; border-radius: 4px; color: var(--ink-3);
+    transition: all 0.15s;
+  }
+  .btn-icon:hover { background: var(--bg-2); color: var(--ink); }
+  .btn-icon.danger:hover { background: var(--rose-soft); color: var(--rose); }
+  .btn-icon.brand:hover { background: var(--accent-soft); color: var(--accent); }
+
+  /* Toast popup for demo */
+  .demo-toast {
+    position: absolute; bottom: 16px; right: 16px;
+    background: white; border: 1px solid var(--accent-border);
+    border-radius: 10px; padding: 12px 14px; max-width: 280px;
+    box-shadow: var(--shadow-lg);
+    font-size: 12px; color: #064e3b;
+    z-index: 5;
+    display: none;
+    animation: toastSlide 200ms ease-out;
+  }
+  .demo-toast.show { display: block; }
+  .demo-toast-title { font-weight: 600; }
+  .demo-toast-body { font-size: 11px; color: var(--ink-2); margin-top: 2px; }
+  @keyframes toastSlide {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .app-frame { position: relative; }
+
+  @media (max-width: 760px) {
+    .app-sidebar { display: none; }
+    .app-frame { min-height: 560px; }
+    .live-metrics-row { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ============================================================
+     ADDITIONS: trust strip, how-it-works, verticals, comparison,
+     mini-calc, quiz, glossary, sticky CTA, modal, orbs
+     ============================================================ */
+
+  /* ---- Animated background orbs in hero ---- */
+  .hero { position: relative; overflow: hidden; }
+  .orb {
+    position: absolute; border-radius: 50%; filter: blur(90px);
+    opacity: 0.3; pointer-events: none; z-index: 0;
+    animation: floatOrb 18s ease-in-out infinite;
+  }
+  .orb-a { width: 340px; height: 340px; background: #6ee7b7; top: -60px; left: -80px; animation-delay: 0s; }
+  .orb-b { width: 280px; height: 280px; background: #93c5fd; top: 20%; right: -60px; animation-delay: -6s; }
+  @keyframes floatOrb {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -20px) scale(1.05); }
+    66% { transform: translate(-20px, 30px) scale(0.95); }
+  }
+
+  /* ---- Tech / integration logos strip ---- */
+  .trust-strip { padding: 48px 32px 32px; background: var(--bg); border-bottom: 1px solid var(--line); }
+  .trust-container { max-width: 1160px; margin: 0 auto; text-align: center; }
+  .trust-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); }
+  .trust-row {
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+    gap: 36px; margin-top: 20px;
+    filter: grayscale(1); opacity: 0.65;
+    transition: opacity 0.3s;
+  }
+  .trust-row:hover { opacity: 0.9; }
+  .trust-logo {
+    font-weight: 700; font-size: 14px; letter-spacing: -0.01em;
+    color: var(--ink-2); display: inline-flex; align-items: center; gap: 6px;
+  }
+  .trust-logo svg { color: var(--ink-2); }
+
+  /* ---- How it works ---- */
+  .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 800px) { .how-grid { grid-template-columns: 1fr; } }
+  .how-step {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 16px; padding: 28px;
+    position: relative; box-shadow: var(--shadow-sm);
+  }
+  .how-num {
+    position: absolute; top: 24px; right: 24px;
+    font-family: 'Instrument Serif', serif; font-style: italic;
+    font-size: 56px; line-height: 1; color: var(--line-2);
+  }
+  .how-step-tag {
+    display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+  }
+  .how-step h3 { font-size: 20px; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.015em; }
+  .how-step p { color: var(--ink-2); font-size: 14px; line-height: 1.55; }
+  .how-step-detail { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-3); }
+
+  /* ---- Industry verticals ---- */
+  .vert-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .vert-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 500px) { .vert-grid { grid-template-columns: 1fr; } }
+  .vert-card {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 22px;
+    position: relative; transition: all 0.2s; box-shadow: var(--shadow-sm);
+  }
+  .vert-card.active { border-color: var(--accent); background: linear-gradient(180deg, var(--accent-soft), var(--bg) 60%); }
+  .vert-card.locked { opacity: 0.7; }
+  .vert-icon { font-size: 22px; margin-bottom: 12px; }
+  .vert-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .vert-card p { font-size: 12px; color: var(--ink-2); line-height: 1.5; }
+  .vert-status {
+    position: absolute; top: 16px; right: 16px;
+    font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 999px;
+  }
+  .vert-status.live { background: var(--accent); color: white; }
+  .vert-status.soon { background: var(--bg-2); color: var(--ink-3); border: 1px solid var(--line); }
+
+  /* ---- Comparison table ---- */
+  .compare-table {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 16px;
+    overflow: hidden; box-shadow: var(--shadow-md);
+  }
+  .compare-table table { width: 100%; border-collapse: collapse; }
+  .compare-table th, .compare-table td {
+    padding: 14px 18px; text-align: left; font-size: 13px;
+    border-bottom: 1px solid var(--line);
+  }
+  .compare-table thead th {
+    background: var(--bg-2); font-size: 13px; font-weight: 600;
+    vertical-align: bottom;
+  }
+  .compare-table thead th:first-child { color: var(--ink-3); font-weight: 500; }
+  .compare-table thead th.featured {
+    background: var(--ink); color: white;
+    border-bottom: none;
+  }
+  .compare-table td:first-child { color: var(--ink-2); }
+  .compare-table td.featured {
+    background: rgba(4, 120, 87, 0.03);
+    font-weight: 500;
+  }
+  .compare-tag {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; opacity: 0.7;
+    display: block; margin-bottom: 4px;
+  }
+  .compare-name { font-size: 16px; font-weight: 700; }
+  .ck { display: inline-flex; align-items: center; gap: 6px; }
+  .ck.yes { color: var(--accent); }
+  .ck.no { color: var(--ink-3); }
+  .ck.partial { color: var(--amber); }
+  .ck-icon { font-weight: 700; }
+  .compare-table tr:last-child td { border-bottom: none; }
+
+  /* ---- Mini EPR calculator ---- */
+  .mini-calc {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 16px;
+    box-shadow: var(--shadow-md); overflow: hidden;
+    display: grid; grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 800px) { .mini-calc { grid-template-columns: 1fr; } }
+  .mini-calc-inputs { padding: 28px; }
+  .mini-calc-outputs {
+    padding: 28px; background: var(--ink); color: white;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .mini-calc h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+  .mini-calc .lead { font-size: 13px; margin-bottom: 20px; }
+  .mc-field { margin-top: 16px; }
+  .mc-label {
+    font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-3); margin-bottom: 6px;
+  }
+  .mc-select, .mc-range {
+    width: 100%; padding: 10px 12px;
+    border: 1px solid var(--line); border-radius: 8px;
+    background: var(--bg-2); font-size: 14px;
+    font-family: inherit;
+  }
+  .mc-range { padding: 0; accent-color: var(--accent); }
+  .mc-out-label {
+    font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
+    color: #6ee7b7;
+  }
+  .mc-out-val {
+    font-size: 44px; font-weight: 700; letter-spacing: -0.03em; margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .mc-out-sub { font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+  .mc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); }
+  .mc-mini-label { font-size: 10px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; }
+  .mc-mini-val { font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; margin-top: 2px; }
+
+  /* ---- PPWR readiness quiz ---- */
+  .quiz {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 16px;
+    padding: 32px; box-shadow: var(--shadow-md); position: relative;
+  }
+  .quiz-progress {
+    height: 4px; background: var(--bg-3); border-radius: 999px; overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .quiz-progress-fill {
+    height: 100%; background: var(--accent); border-radius: 999px;
+    transition: width 0.3s;
+  }
+  .quiz-step-label {
+    font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--ink-3); margin-bottom: 10px;
+  }
+  .quiz-question { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 20px; }
+  .quiz-hint { font-size: 13px; color: var(--ink-2); margin-bottom: 24px; }
+  .quiz-choices { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  @media (max-width: 600px) { .quiz-choices { grid-template-columns: 1fr; } }
+  .quiz-choice {
+    background: var(--bg-2); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 18px; cursor: pointer; font-family: inherit;
+    font-size: 14px; font-weight: 500; color: var(--ink); text-align: left;
+    transition: all 0.15s;
+  }
+  .quiz-choice:hover { border-color: var(--ink); background: var(--bg); }
+  .quiz-controls { display: flex; justify-content: space-between; margin-top: 24px; }
+  .quiz-back {
+    background: transparent; border: none; color: var(--ink-3);
+    font-size: 13px; font-family: inherit; cursor: pointer;
+  }
+  .quiz-back:hover { color: var(--ink); }
+  .quiz-back:disabled { opacity: 0.3; cursor: not-allowed; }
+
+  .quiz-result {
+    text-align: center; padding: 12px 0;
+  }
+  .quiz-score {
+    font-size: 72px; font-weight: 700; letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+  }
+  .quiz-score-out-of { font-size: 24px; color: var(--ink-3); }
+  .quiz-verdict { font-size: 20px; font-weight: 600; margin-top: 4px; }
+  .quiz-verdict-sub { font-size: 14px; color: var(--ink-2); margin-top: 8px; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .quiz-gaps {
+    text-align: left; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line);
+  }
+  .quiz-gaps h4 {
+    font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--ink-3); margin-bottom: 10px;
+  }
+  .quiz-gap {
+    display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px;
+  }
+  .quiz-gap:last-child { border-bottom: none; }
+  .quiz-gap-icon { color: var(--rose); flex-shrink: 0; }
+  .quiz-restart {
+    margin-top: 20px; background: var(--ink); color: white;
+    border: none; padding: 10px 20px; border-radius: 8px;
+    font-family: inherit; font-size: 13px; font-weight: 500; cursor: pointer;
+  }
+
+  /* ---- PPWR Glossary ---- */
+  .glossary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (max-width: 720px) { .glossary-grid { grid-template-columns: 1fr; } }
+  .glossary-item {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .glossary-term {
+    font-size: 13px; font-weight: 600; color: var(--ink);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .glossary-art {
+    font-size: 9px; font-weight: 600; padding: 2px 6px; border-radius: 4px;
+    background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-border);
+  }
+  .glossary-def { font-size: 12px; color: var(--ink-2); margin-top: 4px; line-height: 1.5; }
+
+  /* ---- Sticky CTA pill ---- */
+  .sticky-cta {
+    position: fixed; bottom: 24px; right: 24px; z-index: 80;
+    background: var(--ink); color: white;
+    padding: 12px 20px; border-radius: 999px;
+    font-size: 14px; font-weight: 500;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+    cursor: pointer; border: none; font-family: inherit;
+    opacity: 0; transform: translateY(20px); pointer-events: none;
+    transition: all 0.3s;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .sticky-cta.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .sticky-cta:hover { background: #262626; }
+  .sticky-cta-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--brand-300, #6ee7b7);
+    animation: pulse-ring 2s infinite;
+  }
+  @keyframes pulse-ring {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(110, 231, 183, 0.5); }
+    50% { box-shadow: 0 0 0 6px rgba(110, 231, 183, 0); }
+  }
+
+  /* ---- Demo booking modal ---- */
+  .modal-backdrop {
+    position: fixed; inset: 0; z-index: 100;
+    background: rgba(10, 10, 10, 0.5); backdrop-filter: blur(4px);
+    display: none; align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  .modal-backdrop.show { display: flex; animation: fadeIn 200ms ease-out; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .modal {
+    background: white; border-radius: 18px; padding: 32px; max-width: 480px; width: 100%;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.25);
+    max-height: 92vh; overflow: auto;
+  }
+  .modal-close {
+    float: right; background: transparent; border: none;
+    color: var(--ink-3); cursor: pointer; padding: 4px;
+    font-size: 20px; font-family: inherit;
+  }
+  .modal-close:hover { color: var(--ink); }
+  .modal h3 { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .modal-sub { font-size: 14px; color: var(--ink-2); margin-bottom: 24px; }
+  .modal-field { margin-bottom: 14px; }
+  .modal-label {
+    font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-3); display: block; margin-bottom: 6px;
+  }
+  .modal-input {
+    width: 100%; padding: 10px 12px; border: 1px solid var(--line);
+    border-radius: 8px; font-size: 14px; font-family: inherit;
+    background: var(--bg-2);
+  }
+  .modal-input:focus { background: white; border-color: var(--ink); outline: none; }
+  .modal-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .modal-submit {
+    width: 100%; margin-top: 8px;
+    background: var(--ink); color: white;
+    border: none; padding: 12px 20px; border-radius: 10px;
+    font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+  }
+  .modal-submit:hover { background: #262626; }
+  .modal-success {
+    text-align: center; padding: 20px;
+  }
+  .modal-success-icon {
+    width: 56px; height: 56px; border-radius: 50%; background: var(--accent-soft);
+    color: var(--accent); display: inline-flex; align-items: center; justify-content: center;
+    font-size: 28px; margin-bottom: 16px;
+  }
+
+  /* ---- Counter-on-scroll utility (no extra rule needed; JS handles it) ---- */
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo"><span class="logo-mark">O</span> OEEpulse</div>
+  <div class="nav-links">
+    <a href="#what">PPWR</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#solution">Solution</a>
+    <a href="#product">Product</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <a href="#cta" class="nav-cta">Book a demo</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="orb orb-b"></div>
+  <div class="hero-badge">
+    <span class="tag">New</span>
+    EU Regulation 2025/40 · In force since Feb 2025
+  </div>
+  <h1>The new rules of packaging. <span class="serif">Decoded.</span></h1>
+  <p class="sub">
+    The EU's Packaging &amp; Packaging Waste Regulation rewrites the playbook for every manufacturer shipping into Europe.
+    New limits on weight, recycled content, reuse, and reporting, all enforced with real penalties.
+  </p>
+  <div class="hero-cta">
+    <a href="#what" class="btn-primary">Learn the rules →</a>
+    <a href="#product" class="btn-ghost">See how OEEpulse helps</a>
+  </div>
+
+  <div class="countdown" id="countdown">
+    <div class="count-box"><div class="count-num" id="d-days">00</div><div class="count-label">days</div></div>
+    <div class="count-box"><div class="count-num" id="d-hours">00</div><div class="count-label">hours</div></div>
+    <div class="count-box"><div class="count-num" id="d-mins">00</div><div class="count-label">minutes</div></div>
+    <div class="count-deadline">
+      until <strong>Aug 2026</strong><br/>
+      core obligations<br/>apply
+    </div>
+  </div>
+</header>
+
+<!-- TRUST / TECH STRIP -->
+<div class="trust-strip">
+  <div class="trust-container">
+    <div class="trust-label">Built on · compatible with</div>
+    <div class="trust-row">
+      <div class="trust-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg> OPC-UA</div>
+      <div class="trust-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> MQTT</div>
+      <div class="trust-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2"/><path d="M15 2v2"/><path d="M9 20v2"/><path d="M15 20v2"/><path d="M20 9h2"/><path d="M20 15h2"/><path d="M2 9h2"/><path d="M2 15h2"/></svg> Modbus</div>
+      <div class="trust-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg> PostgreSQL</div>
+      <div class="trust-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" x2="12" y1="8" y2="8"/><line x1="3.95" x2="8.54" y1="6.06" y2="14"/><line x1="10.88" x2="15.46" y1="21.94" y2="14"/></svg> React 19</div>
+      <div class="trust-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 7h5l-5 5"/><path d="M19 12v5l-5-5"/><path d="M14 17H9l5-5"/><path d="M9 12V7l5 5"/></svg> Tauri 2</div>
+      <div class="trust-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> EU DPP-ready</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT IS PPWR -->
+<section id="what">
+  <div class="container">
+    <span class="eyebrow">The Regulation</span>
+    <h2>One regulation. Every package. Every market in the EU.</h2>
+    <p class="lead">
+      PPWR replaces the old Packaging Directive with a single, directly-enforceable regulation across all 27 member states.
+      No more national variants. One rulebook, binding the moment your product crosses a border.
+    </p>
+
+    <div class="what-grid">
+      <div class="stat-card green">
+        <div class="stat-pill">Waste</div>
+        <div class="stat-num">−5%</div>
+        <div class="stat-label">Per-capita packaging waste reduction by 2030, scaling to −15% by 2040</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-pill">Recyclability</div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Of packaging must be recyclable by 2030 under Design for Recycling criteria</div>
+      </div>
+      <div class="stat-card amber">
+        <div class="stat-pill">Materials</div>
+        <div class="stat-num">35%</div>
+        <div class="stat-label">Minimum recycled content in plastic packaging by 2030 (varies by type)</div>
+      </div>
+      <div class="stat-card rose">
+        <div class="stat-pill">Enforcement</div>
+        <div class="stat-num">€€€</div>
+        <div class="stat-label">Penalties, market bans, and modulated EPR fees scale with non-compliance</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline" class="bg-2">
+  <div class="container">
+    <span class="eyebrow">Timeline</span>
+    <h2>The deadlines that will reshape your production floor.</h2>
+    <p class="lead">Each milestone forces structural change. The further out, the deeper the line redesign required.</p>
+
+    <div class="timeline-wrap">
+      <div class="tl-item passed">
+        <div class="tl-year">Feb 2025 · In effect</div>
+        <div class="tl-title">Regulation enters into force</div>
+        <div class="tl-desc">Direct applicability across all 27 member states. No national transposition required, and the clock starts everywhere at once.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">Aug 2026 · Application</div>
+        <div class="tl-title">Core obligations apply</div>
+        <div class="tl-desc">18-month grace period ends. Recyclability assessments, substance restrictions (PFAS, heavy metals), and reporting begin to bite.</div>
+        <span class="tl-tag">First enforcement wave</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">Jan 2030</div>
+        <div class="tl-title">Recycled content + reuse targets</div>
+        <div class="tl-desc">Minimum recycled plastic content (10–35% depending on packaging type). Reuse targets for transport, grouped, and beverage packaging.</div>
+        <span class="tl-tag">Major line redesign required</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">Jan 2030</div>
+        <div class="tl-title">Recyclability grading</div>
+        <div class="tl-desc">All packaging classified A–C. Grade C banned from market by 2038. EPR fees modulated by grade, so bad packaging costs more, every unit, every day.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">Jan 2040</div>
+        <div class="tl-title">Full-scale targets</div>
+        <div class="tl-desc">65% reuse in beverage packaging, 90% separate collection, 15% per-capita waste reduction. The end-state every line must be built toward today.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESSURE vs SOLUTION -->
+<section id="solution">
+  <div class="container">
+    <span class="eyebrow">Compliance, translated</span>
+    <h2>What PPWR demands. What you actually have to do.</h2>
+    <p class="lead">
+      Regulators describe outcomes. Operators live with the consequences. Here's the unvarnished version.
+    </p>
+
+    <div class="split">
+      <div class="pressure-card">
+        <div class="card-label">⚠ Pressure on your line</div>
+        <div class="card-title">What the regulation forces</div>
+        <ul class="check-list">
+          <li><span class="ico">!</span><div><strong>Material substitution.</strong> Recycled-content mandates change resin behavior, machine settings, scrap rates.</div></li>
+          <li><span class="ico">!</span><div><strong>Light-weighting limits.</strong> Every gram of unnecessary packaging counts against your DfR grade.</div></li>
+          <li><span class="ico">!</span><div><strong>Empty-space caps.</strong> 50% void limit on e-commerce and grouped packaging.</div></li>
+          <li><span class="ico">!</span><div><strong>Mandatory data trail.</strong> Material composition, recycled %, recyclability grade for every SKU.</div></li>
+          <li><span class="ico">!</span><div><strong>EPR fee modulation.</strong> Your fees rise automatically if recyclability drops.</div></li>
+          <li><span class="ico">!</span><div><strong>Audit-ready evidence.</strong> Claims must be substantiated, not asserted.</div></li>
+        </ul>
+      </div>
+
+      <div class="solution-card">
+        <div class="card-label">✓ How OEEpulse answers it</div>
+        <div class="card-title">Compliance as a byproduct of efficiency</div>
+        <ul class="check-list">
+          <li><span class="ico">✓</span><div><strong>Live material tracking.</strong> Recycled content logged per batch, exportable as PPWR evidence.</div></li>
+          <li><span class="ico">✓</span><div><strong>Scrap &amp; rework analytics.</strong> Find the 3% of stoppages producing 40% of your waste.</div></li>
+          <li><span class="ico">✓</span><div><strong>Changeover optimization.</strong> Switch resin grades faster without losing OEE.</div></li>
+          <li><span class="ico">✓</span><div><strong>SKU-level reporting.</strong> Every package linked to its material passport automatically.</div></li>
+          <li><span class="ico">✓</span><div><strong>EPR cost forecasting.</strong> Model fee impact before redesigning, not after.</div></li>
+          <li><span class="ico">✓</span><div><strong>Audit log built-in.</strong> Every shift, every batch, every machine. Immutable.</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE APP DEMO -->
+<section id="product" class="bg-2">
+  <div class="container">
+    <div class="demo-intro">
+      <div>
+        <span class="eyebrow">Try it</span>
+        <h2>The app, <span class="serif">live</span>.</h2>
+        <p class="lead" style="margin-bottom: 0;">Pick a SKU, slide the recycled-content target, watch the EPR fee drop.</p>
+      </div>
+      <div class="demo-hint">
+        <span class="kbd">click</span> anything
+      </div>
+    </div>
+
+    <div class="app-frame" id="appFrame">
+      <div class="app-titlebar">
+        <div class="traffic"><span></span><span></span><span></span></div>
+        <div class="app-titlebar-title">OEEpulse — Print Edition</div>
+        <div class="url">app.oeepulse.eu</div>
+      </div>
+
+      <div class="app-shell">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar">
+          <div class="app-logo">
+            <div class="app-logo-mark">O</div>
+            <div>
+              <div class="app-logo-name">OEEpulse</div>
+              <div class="app-logo-tag">
+                <svg class="app-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.96c1.4 9.3-.7 14.84-8.2 17.04Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+                PPWR Edition
+              </div>
+            </div>
+          </div>
+
+          <div class="app-nav-section">
+            <div class="app-nav-label">Compliance</div>
+            <button class="app-nav-item active" data-screen="compliance">
+              <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg></span>
+              Dashboard
+            </button>
+            <button class="app-nav-item" data-screen="materials">
+              <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5"/><path d="M11 19h8.203a1.83 1.83 0 0 0 1.556-.89 1.784 1.784 0 0 0 0-1.775l-1.226-2.12"/><path d="m14 16-3 3 3 3"/><path d="M8.293 13.596 7.196 9.5 3.1 10.598"/><path d="m9.344 5.811 1.093-1.892A1.83 1.83 0 0 1 12.013 3a1.83 1.83 0 0 1 1.575.92l3.328 5.762"/><path d="m13.378 9.633 4.096 1.098 1.097-4.096"/></svg></span>
+              Materials
+            </button>
+            <button class="app-nav-item" data-screen="epr">
+              <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="9" y2="9"/><line x1="4" x2="20" y1="15" y2="15"/><path d="M14 4 10 20"/></svg></span>
+              EPR Forecaster
+            </button>
+            <button class="app-nav-item" data-screen="audit">
+              <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></span>
+              Audit Vault
+            </button>
+          </div>
+
+          <div class="app-nav-section">
+            <div class="app-nav-label">Production</div>
+            <button class="app-nav-item" data-screen="live">
+              <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.5.5 0 0 1-.96 0L9.24 2.18a.5.5 0 0 0-.96 0l-2.35 8.36A2 2 0 0 1 4 12H2"/></svg></span>
+              Live
+            </button>
+          </div>
+
+          <div class="app-user-card">
+            <div class="app-user-row">
+              <div class="app-avatar">P</div>
+              <div>
+                <div class="app-user-name">Admin</div>
+                <div class="app-user-role">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+                  admin · Shift 2
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- MAIN -->
+        <div class="app-main">
+          <div class="app-topbar">
+            <div class="app-search">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              Search jobs, machines, users…  ⌘K
+            </div>
+            <div class="app-pill-time">
+              <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);"></span>
+              Plant overview · live
+            </div>
+          </div>
+
+          <!-- SCREEN: COMPLIANCE -->
+          <div class="app-screen active" data-screen="compliance">
+            <div class="app-screen-header">
+              <div>
+                <div class="app-eyebrow">PPWR compliance</div>
+                <h3>Welcome back, <span class="serif">Admin</span></h3>
+                <div class="app-screen-sub">Plant posture against EU Regulation 2025/40 · 5 SKUs registered</div>
+              </div>
+            </div>
+
+            <div class="app-grid cols-4" style="margin-bottom: 14px;">
+              <button class="kpi-card" data-go="materials">
+                <div class="kpi-row">
+                  <div class="kpi-ico green">♻️</div>
+                  <span class="kpi-status ok">Watch</span>
+                </div>
+                <div class="kpi-label">Recycled content</div>
+                <div class="kpi-value" id="kpiRecycled">33%</div>
+                <div class="kpi-target">2030 · 30%</div>
+                <div class="kpi-sub">3 pts above target — close grade-C gaps next</div>
+              </button>
+              <button class="kpi-card" data-go="materials" data-grade="C">
+                <div class="kpi-row">
+                  <div class="kpi-ico amber">🛡️</div>
+                  <span class="kpi-status warn">Watch</span>
+                </div>
+                <div class="kpi-label">DfR grade A</div>
+                <div class="kpi-value">60%</div>
+                <div class="kpi-target">2038 · 100% (no C)</div>
+                <div class="kpi-sub">1 grade-C SKU faces 2038 ban</div>
+              </button>
+              <button class="kpi-card" data-go="epr">
+                <div class="kpi-row">
+                  <div class="kpi-ico blue">€</div>
+                  <span class="kpi-status ok">On track</span>
+                </div>
+                <div class="kpi-label">Annualised EPR</div>
+                <div class="kpi-value">€2.4M</div>
+                <div class="kpi-target">vs €5.8M worst-case</div>
+                <div class="kpi-sub">€3.4M avoided through better materials</div>
+              </button>
+              <button class="kpi-card" data-go="materials">
+                <div class="kpi-row">
+                  <div class="kpi-ico green">🌿</div>
+                  <span class="kpi-status ok">On track</span>
+                </div>
+                <div class="kpi-label">Avg carbon</div>
+                <div class="kpi-value">62 g</div>
+                <div class="kpi-target">per package · gate-to-gate</div>
+                <div class="kpi-sub">Substrate × weight × recycled lever</div>
+              </button>
+            </div>
+
+            <div class="app-grid cols-12">
+              <div class="app-card col-7">
+                <div class="app-card-head">
+                  <div class="app-card-title">DfR grade distribution</div>
+                  <span class="audit-pill neutral">5 SKUs</span>
+                </div>
+                <div class="app-card-body">
+                  <div class="dfr-bar">
+                    <div class="dfr-seg a" style="width: 60%;"></div>
+                    <div class="dfr-seg b" style="width: 20%;"></div>
+                    <div class="dfr-seg c" style="width: 20%;"></div>
+                  </div>
+                  <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px;">
+                    <button class="grade-stat" data-go="materials" data-grade="A">
+                      <div class="grade-stat-label"><span style="width:8px;height:8px;border-radius:2px;background:var(--accent);"></span>Grade A · ready</div>
+                      <div class="grade-stat-num a">3</div>
+                      <div class="grade-stat-pct">60% of SKUs</div>
+                    </button>
+                    <button class="grade-stat" data-go="materials" data-grade="B">
+                      <div class="grade-stat-label"><span style="width:8px;height:8px;border-radius:2px;background:#fbbf24;"></span>Grade B</div>
+                      <div class="grade-stat-num b">1</div>
+                      <div class="grade-stat-pct">20% of SKUs</div>
+                    </button>
+                    <button class="grade-stat" data-go="materials" data-grade="C">
+                      <div class="grade-stat-label"><span style="width:8px;height:8px;border-radius:2px;background:#f87171;"></span>Grade C · 2038 ban</div>
+                      <div class="grade-stat-num c">1</div>
+                      <div class="grade-stat-pct">20% of SKUs</div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="app-card col-5">
+                <div class="app-card-head">
+                  <div class="app-card-title">SKUs at risk</div>
+                  <span class="audit-pill rose">1</span>
+                </div>
+                <div class="app-card-body">
+                  <button class="risk-row" data-go="epr">
+                    <span class="risk-ico">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+                    </span>
+                    <div class="risk-info">
+                      <div class="risk-sku">PLAT-ROOM-CARD</div>
+                      <div class="risk-sub">Platinum Room Card · 5% recycled · grade C · PFAS</div>
+                    </div>
+                    <span class="risk-pill">€420K/yr</span>
+                  </button>
+                  <div style="margin-top: 12px; text-align: right;">
+                    <button class="filter-chip active" data-go="epr">Model redesign →</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="app-card col-12">
+                <div class="app-card-head"><div class="app-card-title">Quick actions</div></div>
+                <div class="app-card-body">
+                  <div class="quick-actions">
+                    <button class="quick-action" data-go="materials">
+                      <div class="quick-action-ico">♻️</div>
+                      <div>
+                        <div class="quick-action-title">Register a passport</div>
+                        <div class="quick-action-body">Capture material, recycled %, substances</div>
+                      </div>
+                    </button>
+                    <button class="quick-action" data-go="epr">
+                      <div class="quick-action-ico">€</div>
+                      <div>
+                        <div class="quick-action-title">EPR what-if</div>
+                        <div class="quick-action-body">Model a redesign across 27 markets</div>
+                      </div>
+                    </button>
+                    <button class="quick-action" data-go="audit">
+                      <div class="quick-action-ico">🛡️</div>
+                      <div>
+                        <div class="quick-action-title">Audit Vault</div>
+                        <div class="quick-action-body">Substantiate every claim</div>
+                      </div>
+                    </button>
+                    <button class="quick-action" data-go="live">
+                      <div class="quick-action-ico">📡</div>
+                      <div>
+                        <div class="quick-action-title">Live operator</div>
+                        <div class="quick-action-body">Start a job, log a stoppage</div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SCREEN: MATERIALS -->
+          <div class="app-screen" data-screen="materials">
+            <div class="app-screen-header">
+              <div>
+                <div class="app-eyebrow">PPWR · Art. 7 + DPP</div>
+                <h3>Material passports</h3>
+                <div class="app-screen-sub">5 SKUs · 3 grade A · 1 grade C</div>
+              </div>
+              <button class="live-btn primary" style="font-size:12px; padding: 8px 14px;">+ New passport</button>
+            </div>
+
+            <div class="mat-toolbar">
+              <div class="app-card-title" style="margin-right: auto;">Registered SKUs</div>
+              <div class="filter-chips" id="gradeFilters">
+                <button class="filter-chip active" data-grade-filter="all">All</button>
+                <button class="filter-chip" data-grade-filter="A">Grade A</button>
+                <button class="filter-chip" data-grade-filter="B">Grade B</button>
+                <button class="filter-chip" data-grade-filter="C">Grade C</button>
+              </div>
+            </div>
+
+            <div class="mat-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>SKU · Product</th>
+                    <th>Substrate</th>
+                    <th class="right">Weight</th>
+                    <th class="right">Recycled %</th>
+                    <th>DfR</th>
+                    <th>Substances</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="matRows">
+                  <tr data-grade="A">
+                    <td><div class="mat-sku">CRV-MENU-A4</div><div class="mat-name">Two Cafe Menu Sheets</div></td>
+                    <td>Paperboard</td>
+                    <td class="right">14 g</td>
+                    <td class="right"><span class="mat-pill green">65%</span></td>
+                    <td><span class="mat-pill green">Grade A</span></td>
+                    <td><span class="mat-pill green">Clear</span></td>
+                    <td>
+                      <div class="btn-icon-row">
+                        <button class="btn-icon brand" title="DPP / QR"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="5" height="5"/><rect x="16" y="3" width="5" height="5"/><rect x="3" y="16" width="5" height="5"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/></svg></button>
+                        <button class="btn-icon" title="Declaration"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 19.5V5a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14.5a.5.5 0 0 0 .854.354L9 18l2.146 1.854a.5.5 0 0 0 .708 0L14 18l2.146 1.854a.5.5 0 0 0 .708 0L19 18l.146.354a.5.5 0 0 0 .854-.354Z"/></svg></button>
+                        <button class="btn-icon danger" title="Delete"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr data-grade="A">
+                    <td><div class="mat-sku">FLR-LAUNDRY-FORM</div><div class="mat-name">Flora Laundry & Dry Cleaning Form</div></td>
+                    <td>Paperboard</td>
+                    <td class="right">6 g</td>
+                    <td class="right"><span class="mat-pill green">30%</span></td>
+                    <td><span class="mat-pill green">Grade A</span></td>
+                    <td><span class="mat-pill green">Clear</span></td>
+                    <td><div class="btn-icon-row"><button class="btn-icon brand">▣</button><button class="btn-icon">📄</button><button class="btn-icon danger">🗑</button></div></td>
+                  </tr>
+                  <tr data-grade="B">
+                    <td><div class="mat-sku">MOOPENS-DESIGN-BOX</div><div class="mat-name">Dr. Moopens New Design Box</div></td>
+                    <td>Corrugated</td>
+                    <td class="right">95 g</td>
+                    <td class="right"><span class="mat-pill amber">22%</span></td>
+                    <td><span class="mat-pill amber">Grade B</span></td>
+                    <td><span class="mat-pill green">Clear</span></td>
+                    <td><div class="btn-icon-row"><button class="btn-icon brand">▣</button><button class="btn-icon">📄</button><button class="btn-icon danger">🗑</button></div></td>
+                  </tr>
+                  <tr data-grade="C">
+                    <td><div class="mat-sku">PLAT-ROOM-CARD</div><div class="mat-name">Platinum Heritage Room Card</div></td>
+                    <td>Multilayer laminate</td>
+                    <td class="right">22 g</td>
+                    <td class="right"><span class="mat-pill rose">5%</span></td>
+                    <td><span class="mat-pill rose">Grade C</span></td>
+                    <td><span class="mat-pill rose">1 flag (PFAS)</span></td>
+                    <td><div class="btn-icon-row"><button class="btn-icon brand">▣</button><button class="btn-icon">📄</button><button class="btn-icon danger">🗑</button></div></td>
+                  </tr>
+                  <tr data-grade="A">
+                    <td><div class="mat-sku">GBC-CUPCAKE-BOX</div><div class="mat-name">Cupcake Box GS 2 PCS 16x16x8 cm</div></td>
+                    <td>rPET</td>
+                    <td class="right">38 g</td>
+                    <td class="right"><span class="mat-pill green">42%</span></td>
+                    <td><span class="mat-pill green">Grade A</span></td>
+                    <td><span class="mat-pill green">Clear</span></td>
+                    <td><div class="btn-icon-row"><button class="btn-icon brand">▣</button><button class="btn-icon">📄</button><button class="btn-icon danger">🗑</button></div></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- SCREEN: EPR FORECASTER -->
+          <div class="app-screen" data-screen="epr">
+            <div class="app-screen-header">
+              <div>
+                <div class="app-eyebrow">PPWR · EPR modulation</div>
+                <h3>EPR fee forecaster</h3>
+                <div class="app-screen-sub">Model redesigns against today's package. Annualised across selected markets.</div>
+              </div>
+            </div>
+
+            <div class="epr-grid">
+              <div class="app-card">
+                <div class="app-card-head">
+                  <div class="app-card-title">SKU to model</div>
+                  <span class="audit-pill neutral">5</span>
+                </div>
+                <div class="app-card-body">
+                  <select class="epr-select" id="eprSku">
+                    <option value="PLAT-ROOM-CARD" data-substrate="multilayer-laminate" data-weight="22" data-recycled="5" data-void="12">PLAT-ROOM-CARD · Platinum Heritage Room Card</option>
+                    <option value="MOOPENS-DESIGN-BOX" data-substrate="corrugated" data-weight="95" data-recycled="22" data-void="32">MOOPENS-DESIGN-BOX · Dr. Moopens Design Box</option>
+                    <option value="CRV-MENU-A4" data-substrate="paperboard" data-weight="14" data-recycled="65" data-void="8">CRV-MENU-A4 · Two Cafe Menu Sheets</option>
+                    <option value="GBC-CUPCAKE-BOX" data-substrate="rPET" data-weight="38" data-recycled="42" data-void="48">GBC-CUPCAKE-BOX · Cupcake Box</option>
+                  </select>
+
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px;">
+                    <div class="epr-mini-card">
+                      <div class="epr-mini-label">Today substrate</div>
+                      <div class="epr-mini-val" id="eprBaseSubstrate">Multilayer laminate</div>
+                    </div>
+                    <div class="epr-mini-card">
+                      <div class="epr-mini-label">Today recycled</div>
+                      <div class="epr-mini-val" id="eprBaseRecycled">5%</div>
+                    </div>
+                    <div class="epr-mini-card">
+                      <div class="epr-mini-label">DfR baseline</div>
+                      <div class="epr-mini-val" id="eprBaseDfr" style="color: var(--rose);">Grade C</div>
+                    </div>
+                    <div class="epr-mini-card">
+                      <div class="epr-mini-label">Volume / yr</div>
+                      <div class="epr-mini-val">1,000,000</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="app-card">
+                <div class="app-card-head">
+                  <div class="app-card-title">Scenario editor</div>
+                  <span class="audit-pill green" id="eprDeltaPill">Tweak sliders →</span>
+                </div>
+                <div class="app-card-body">
+                  <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                    <div>
+                      <div class="epr-field-label">Substrate</div>
+                      <select class="epr-select" id="eprSubstrate">
+                        <option value="paperboard">Paperboard</option>
+                        <option value="corrugated">Corrugated</option>
+                        <option value="rPET">rPET</option>
+                        <option value="vPET">Virgin PET</option>
+                        <option value="HDPE">HDPE</option>
+                        <option value="PP">Polypropylene</option>
+                        <option value="multilayer-laminate">Multilayer laminate</option>
+                      </select>
+                    </div>
+                    <div>
+                      <div class="epr-field-label" id="eprWeightLabel">Weight · 22 g</div>
+                      <input type="range" min="2" max="200" step="0.5" value="22" class="epr-slider" id="eprWeight">
+                    </div>
+                    <div>
+                      <div class="epr-field-label" id="eprRecycledLabel">Recycled content · 5%</div>
+                      <input type="range" min="0" max="100" value="5" class="epr-slider" id="eprRecycled">
+                    </div>
+                    <div>
+                      <div class="epr-field-label" id="eprVoidLabel">Void space · 12%</div>
+                      <input type="range" min="0" max="80" value="12" class="epr-slider" id="eprVoid">
+                    </div>
+                  </div>
+
+                  <div class="epr-result-grid">
+                    <div class="epr-result neutral">
+                      <div class="epr-result-label">€ Baseline · annual</div>
+                      <div class="epr-result-val" id="eprBaseline">€420K</div>
+                      <div class="epr-result-sub">today's package</div>
+                    </div>
+                    <div class="epr-result green" id="eprScenarioBox">
+                      <div class="epr-result-label">€ Scenario · annual</div>
+                      <div class="epr-result-val" id="eprScenario">€420K</div>
+                      <div class="epr-result-sub" id="eprScenarioSub">grade C · 18% recyclable</div>
+                    </div>
+                    <div class="epr-result green" id="eprDeltaBox">
+                      <div class="epr-result-label">↘ Saved</div>
+                      <div class="epr-result-val" id="eprDelta">€0</div>
+                      <div class="epr-result-sub" id="eprDeltaSub">Δ 0.0%</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="app-card" style="margin-top: 14px;">
+              <div class="app-card-head">
+                <div class="app-card-title">Suggested redesigns</div>
+                <span class="audit-pill neutral">✦ Auto</span>
+              </div>
+              <div class="app-card-body">
+                <div class="suggestions">
+                  <div class="suggestion">
+                    <div class="suggestion-head">
+                      <div class="suggestion-title">Swap to rPET, 35% recycled</div>
+                      <span class="audit-pill green" id="sugg1">€336K saved</span>
+                    </div>
+                    <div class="suggestion-body">Same package, rPET substrate</div>
+                  </div>
+                  <div class="suggestion">
+                    <div class="suggestion-head">
+                      <div class="suggestion-title">Light-weight by 20%</div>
+                      <span class="audit-pill green" id="sugg2">€84K saved</span>
+                    </div>
+                    <div class="suggestion-body">Reduce gsm — re-engineer board</div>
+                  </div>
+                  <div class="suggestion">
+                    <div class="suggestion-head">
+                      <div class="suggestion-title">Drop restricted substances</div>
+                      <span class="audit-pill green" id="sugg3">€189K saved</span>
+                    </div>
+                    <div class="suggestion-body">Remove PFAS — grade-A bump</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SCREEN: LIVE OPERATOR -->
+          <div class="app-screen" data-screen="live">
+            <div class="app-screen-header">
+              <div>
+                <div class="app-eyebrow neutral">● Line 04 · CD102-5LX · HD 1643</div>
+                <h3>Job #18548 · Cravings With Couture</h3>
+                <div class="app-screen-sub">Two Cafe Menu Sheets · 3,000 imp · est 40 min · delivery Sat 6 Oct</div>
+              </div>
+              <span class="audit-pill green" id="liveStatusPill">
+                <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-right:4px;"></span>
+                Running
+              </span>
+            </div>
+
+            <div class="live-grid">
+              <div class="app-card">
+                <div class="app-card-head">
+                  <div class="app-card-title">PPWR posture · this SKU</div>
+                  <span class="audit-pill green">Grade A</span>
+                </div>
+                <div class="app-card-body">
+                  <div style="display: flex; align-items: baseline; gap: 12px;">
+                    <div style="font-size: 36px; font-weight: 700; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;">95%</div>
+                    <div>
+                      <div style="font-size: 12px; font-weight: 500;">recyclability</div>
+                      <div style="font-size: 11px; color: var(--ink-3);">Paperboard · 14 g</div>
+                    </div>
+                  </div>
+                  <div class="ppwr-tiles">
+                    <div class="ppwr-tile">
+                      <div class="ppwr-tile-label">♻ Recycled</div>
+                      <div class="ppwr-tile-val">65%</div>
+                      <div class="ppwr-tile-hint">≥ 2030 target</div>
+                    </div>
+                    <div class="ppwr-tile">
+                      <div class="ppwr-tile-label">🌿 Carbon</div>
+                      <div class="ppwr-tile-val">6 g</div>
+                      <div class="ppwr-tile-hint">gate-to-gate</div>
+                    </div>
+                    <div class="ppwr-tile">
+                      <div class="ppwr-tile-label">€ EPR</div>
+                      <div class="ppwr-tile-val">€1.4</div>
+                      <div class="ppwr-tile-hint">per 1k units</div>
+                    </div>
+                  </div>
+                  <div style="margin-top: 12px; padding: 10px 12px; background: var(--bg-2); border: 1px solid var(--line); border-radius: 8px; font-size: 11px; color: var(--ink-2);">
+                    Shift carbon: <strong style="color: var(--ink); font-variant-numeric: tabular-nums;" id="liveCarbon">12.6 kg</strong> on <span id="liveCarbonQty">2,100</span> units
+                  </div>
+                </div>
+              </div>
+
+              <div class="app-card">
+                <div class="app-card-head">
+                  <div class="app-card-title">Production · live</div>
+                  <span class="audit-pill green">On schedule</span>
+                </div>
+                <div class="app-card-body">
+                  <div class="live-metrics-row">
+                    <div>
+                      <div class="live-metric-label">Current Qty</div>
+                      <div class="live-metric-val" id="liveQty">2,100</div>
+                      <div class="live-metric-hint">of 3,000 imp</div>
+                    </div>
+                    <div>
+                      <div class="live-metric-label">Elapsed</div>
+                      <div class="live-metric-val" id="liveTime">00:18:14</div>
+                      <div class="live-metric-hint">since 14:02</div>
+                    </div>
+                    <div>
+                      <div class="live-metric-label">OEE</div>
+                      <div class="live-metric-val" id="liveOEE">87.4%</div>
+                      <div class="live-metric-hint">rolling</div>
+                    </div>
+                    <div>
+                      <div class="live-metric-label">Phase</div>
+                      <div class="live-metric-val" id="livePhase">Production</div>
+                      <div class="live-metric-hint" id="livePhaseHint">counter active</div>
+                    </div>
+                  </div>
+
+                  <div style="margin-top: 4px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 4px;">
+                      <span style="font-weight: 500;" id="liveProgressLabel">70% complete</span>
+                      <span style="color: var(--ink-3); font-variant-numeric: tabular-nums;" id="liveProgressNum">2,100 / 3,000</span>
+                    </div>
+                    <div class="progress-track">
+                      <div class="progress-fill" id="liveProgress" style="width: 70%;"></div>
+                    </div>
+                  </div>
+
+                  <div class="live-actions">
+                    <button class="live-btn warn" id="liveBreakBtn">⏸ Log stoppage</button>
+                    <button class="live-btn primary" id="liveFinishBtn">✓ Finish</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="app-card col-12">
+                <div class="app-card-head">
+                  <div class="app-card-title">Shift timeline</div>
+                  <span class="audit-pill neutral" id="liveEventCount">5 events</span>
+                </div>
+                <div class="app-card-body">
+                  <div class="timeline-events" id="liveTimeline">
+                    <div class="timeline-event">
+                      <span class="timeline-time">11:48</span>
+                      <span class="timeline-dot info"></span>
+                      <span class="timeline-event-label">Shift start · Operator Alex Reyes</span>
+                    </div>
+                    <div class="timeline-event">
+                      <span class="timeline-time">11:52</span>
+                      <span class="timeline-dot info"></span>
+                      <span class="timeline-event-label">PM checklist acknowledged · 7/7</span>
+                    </div>
+                    <div class="timeline-event">
+                      <span class="timeline-time">12:24</span>
+                      <span class="timeline-dot start"></span>
+                      <span class="timeline-event-label">Job 18548 · Make-Ready 1 begin</span>
+                    </div>
+                    <div class="timeline-event">
+                      <span class="timeline-time">13:08</span>
+                      <span class="timeline-dot stop"></span>
+                      <span class="timeline-event-label">Damping roller setting due to scum (mechanical)</span>
+                    </div>
+                    <div class="timeline-event">
+                      <span class="timeline-time">13:17</span>
+                      <span class="timeline-dot resume"></span>
+                      <span class="timeline-event-label">Job resumed</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SCREEN: AUDIT VAULT -->
+          <div class="app-screen" data-screen="audit">
+            <div class="app-screen-header">
+              <div>
+                <div class="app-eyebrow">PPWR · substantiation of claims</div>
+                <h3>🛡 Audit Vault</h3>
+                <div class="app-screen-sub">Append-only event log · 12 records · regulator-ready export</div>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <button class="live-btn" style="background: white; color: var(--ink); border: 1px solid var(--line); padding: 7px 12px; font-size: 12px;">Export CSV</button>
+                <button class="live-btn" style="background: white; color: var(--ink); border: 1px solid var(--line); padding: 7px 12px; font-size: 12px;">Export JSON</button>
+              </div>
+            </div>
+
+            <div class="mat-toolbar">
+              <div class="app-card-title" style="margin-right: auto;">Events</div>
+              <select class="epr-select" id="auditFilter" style="width: 200px; height: 30px; font-size: 11px;">
+                <option value="all">All categories</option>
+                <option value="auth">Auth</option>
+                <option value="jobs">Jobs</option>
+                <option value="materials">Materials</option>
+                <option value="signal">Signals</option>
+                <option value="config">Configuration</option>
+              </select>
+            </div>
+
+            <div class="audit-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Timestamp</th>
+                    <th>Kind</th>
+                    <th>Actor</th>
+                    <th>Target</th>
+                    <th>Summary</th>
+                  </tr>
+                </thead>
+                <tbody id="auditRows">
+                  <tr data-cat="jobs"><td class="ts">14:32:18</td><td><span class="audit-pill amber">job:stop</span></td><td class="actor">Alex Reyes</td><td><code style="font-size:11px;">18548</code></td><td>Stopped: Mechanical · Printing Unit · damping roller scum</td></tr>
+                  <tr data-cat="signal"><td class="ts">14:31:55</td><td><span class="audit-pill amber">signal:anomaly</span></td><td class="actor">Alert engine</td><td><code style="font-size:11px;">Vibration</code></td><td>Rule "Vibration alarm" tripped · 0.87 mm/s</td></tr>
+                  <tr data-cat="materials"><td class="ts">14:18:02</td><td><span class="audit-pill green">material:update</span></td><td class="actor">Admin</td><td><code style="font-size:11px;">CRV-MENU-A4</code></td><td>Recycled content updated 60% → 65%</td></tr>
+                  <tr data-cat="jobs"><td class="ts">14:02:11</td><td><span class="audit-pill blue">job:start</span></td><td class="actor">Alex Reyes</td><td><code style="font-size:11px;">18548</code></td><td>Started job 18548 (Cravings With Couture)</td></tr>
+                  <tr data-cat="materials"><td class="ts">13:54:00</td><td><span class="audit-pill rose">material:delete</span></td><td class="actor">Admin</td><td><code style="font-size:11px;">OLD-LAMINATE-12</code></td><td>Deleted passport (replaced by rPET version)</td></tr>
+                  <tr data-cat="auth"><td class="ts">13:48:42</td><td><span class="audit-pill blue">auth:login</span></td><td class="actor">Admin</td><td>—</td><td>Admin signed in (admin)</td></tr>
+                  <tr data-cat="config"><td class="ts">13:21:08</td><td><span class="audit-pill blue">config:alerts</span></td><td class="actor">Admin</td><td>—</td><td>Alert rules: 4 total · 3 enabled</td></tr>
+                  <tr data-cat="jobs"><td class="ts">12:24:55</td><td><span class="audit-pill blue">job:select</span></td><td class="actor">Alex Reyes</td><td><code style="font-size:11px;">18548</code></td><td>Selected job 18548</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-toast" id="demoToast">
+        <div class="demo-toast-title" id="toastTitle">Saved</div>
+        <div class="demo-toast-body" id="toastBody"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <span class="eyebrow">How it works</span>
+    <h2>Three steps from PLCs to PPWR-ready.</h2>
+    <p class="lead">Bring the data, define the SKUs, ship the evidence. No greenfield re-platforming.</p>
+
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <div class="how-step-tag">Connect</div>
+        <h3>Plug into your line</h3>
+        <p>OPC-UA, MQTT, Modbus, or counter pulses on GPIO. An edge agent runs on a Pi-class device or any Linux box you already have.</p>
+        <div class="how-step-detail">Average time from install to first dashboard · 14 days</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <div class="how-step-tag">Register</div>
+        <h3>Build the SKU passport</h3>
+        <p>Substrate, recycled content, weight, restricted substances, void space. Recyclability grade is derived automatically. Carbon and EPR fee follow.</p>
+        <div class="how-step-detail">Bulk-import from MIS or build per-SKU in 90 seconds</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <div class="how-step-tag">Substantiate</div>
+        <h3>Generate the evidence</h3>
+        <p>Digital Product Passport QR codes, conformity declarations, Article 56 annual reports, EPR cost forecasts. Every claim backed by an append-only audit log.</p>
+        <div class="how-step-detail">CSV, JSON, PDF — regulator-ready exports out of the box</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRY VERTICALS -->
+<section id="verticals" class="bg-2">
+  <div class="container">
+    <span class="eyebrow">Industry packs</span>
+    <h2>One platform. One pack per industry.</h2>
+    <p class="lead">Each pack ships its own breakdown taxonomy, make-ready phases, and PPWR-relevant KPIs. Switch packs without re-implementing.</p>
+
+    <div class="vert-grid">
+      <div class="vert-card active">
+        <span class="vert-status live">Live</span>
+        <div class="vert-icon">🖨️</div>
+        <h4>Print Edition</h4>
+        <p>Offset and digital print presses. DMI heritage taxonomy: feeder, printing unit, coating, delivery, auxiliary.</p>
+      </div>
+      <div class="vert-card locked">
+        <span class="vert-status soon">Q3 2026</span>
+        <div class="vert-icon">🥤</div>
+        <h4>Food &amp; Beverage</h4>
+        <p>Filling, capping, labelling lines. CIP-aware. Beverage reuse-pool tracking baked in.</p>
+      </div>
+      <div class="vert-card locked">
+        <span class="vert-status soon">Q4 2026</span>
+        <div class="vert-icon">💊</div>
+        <h4>Pharma</h4>
+        <p>GMP-validated workflows, batch genealogy, restricted-substance auditing on a finer cadence.</p>
+      </div>
+      <div class="vert-card locked">
+        <span class="vert-status soon">Q1 2027</span>
+        <div class="vert-icon">📦</div>
+        <h4>Packaging Converter</h4>
+        <p>Flexo, lamination, die-cut. Multilayer-laminate focus — exactly the substrates PPWR penalises hardest.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section id="compare">
+  <div class="container">
+    <span class="eyebrow">vs. status quo</span>
+    <h2>What you get vs. what you've got.</h2>
+    <p class="lead">Most plants today substantiate compliance with PDF binders and Excel sheets. Generic OEE tools optimise throughput but ignore the regulation. OEEpulse PPWR Edition does both.</p>
+
+    <div class="compare-table">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>
+              <span class="compare-tag">Status quo</span>
+              <span class="compare-name">Excel + PDF binders</span>
+            </th>
+            <th>
+              <span class="compare-tag">Adjacent</span>
+              <span class="compare-name">Generic OEE tool</span>
+            </th>
+            <th class="featured">
+              <span class="compare-tag">This</span>
+              <span class="compare-name">OEEpulse</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Real-time OEE per line</td>
+            <td><span class="ck no"><span class="ck-icon">✕</span> Manual log</span></td>
+            <td><span class="ck yes"><span class="ck-icon">✓</span> Yes</span></td>
+            <td class="featured"><span class="ck yes"><span class="ck-icon">✓</span> Yes</span></td>
+          </tr>
+          <tr>
+            <td>Material passport per SKU</td>
+            <td><span class="ck partial"><span class="ck-icon">~</span> Per binder</span></td>
+            <td><span class="ck no"><span class="ck-icon">✕</span> No</span></td>
+            <td class="featured"><span class="ck yes"><span class="ck-icon">✓</span> Auto-derived</span></td>
+          </tr>
+          <tr>
+            <td>Digital Product Passport + QR (Art. 11)</td>
+            <td><span class="ck no"><span class="ck-icon">✕</span> No</span></td>
+            <td><span class="ck no"><span class="ck-icon">✕</span> No</span></td>
+            <td class="featured"><span class="ck yes"><span class="ck-icon">✓</span> One click</span></td>
+          </tr>
+          <tr>
+            <td>EPR fee forecasting across markets</td>
+            <td><span class="ck no"><span class="ck-icon">✕</span> No</span></td>
+            <td><span class="ck no"><span class="ck-icon">✕</span> No</span></td>
+            <td class="featured"><span class="ck yes"><span class="ck-icon">✓</span> Live what-if</span></td>
+          </tr>
+          <tr>
+            <td>Conformity declaration generator</td>
+            <td><span class="ck partial"><span class="ck-icon">~</span> Word doc</span></td>
+            <td><span class="ck no"><span class="ck-icon">✕</span> No</span></td>
+            <td class="featured"><span class="ck yes"><span class="ck-icon">✓</span> Auto PDF</span></td>
+          </tr>
+          <tr>
+            <td>Append-only audit log</td>
+            <td><span class="ck no"><span class="ck-icon">✕</span> No</span></td>
+            <td><span class="ck partial"><span class="ck-icon">~</span> Limited</span></td>
+            <td class="featured"><span class="ck yes"><span class="ck-icon">✓</span> Every action</span></td>
+          </tr>
+          <tr>
+            <td>Carbon per package, live</td>
+            <td><span class="ck no"><span class="ck-icon">✕</span> No</span></td>
+            <td><span class="ck no"><span class="ck-icon">✕</span> No</span></td>
+            <td class="featured"><span class="ck yes"><span class="ck-icon">✓</span> Per shift</span></td>
+          </tr>
+          <tr>
+            <td>Survives a regulator audit</td>
+            <td><span class="ck no"><span class="ck-icon">✕</span> If your binders are tidy</span></td>
+            <td><span class="ck no"><span class="ck-icon">✕</span> Wrong shape</span></td>
+            <td class="featured"><span class="ck yes"><span class="ck-icon">✓</span> Built for it</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- MINI EPR CALCULATOR -->
+<section id="quick-calc" class="bg-2">
+  <div class="container">
+    <span class="eyebrow">30-second estimate</span>
+    <h2>Your annual EPR fee, <span class="serif">right now</span>.</h2>
+    <p class="lead">Three inputs. Live calculation against published 2024 PRO tariffs. Same engine the full app uses.</p>
+
+    <div class="mini-calc">
+      <div class="mini-calc-inputs">
+        <h3>Tell me about one SKU</h3>
+        <p class="lead">Just a typical package shipped into the EU.</p>
+        <div class="mc-field">
+          <div class="mc-label">Substrate</div>
+          <select class="mc-select" id="mcSubstrate">
+            <option value="paperboard">Paperboard</option>
+            <option value="corrugated">Corrugated</option>
+            <option value="rPET">rPET</option>
+            <option value="vPET" selected>Virgin PET</option>
+            <option value="HDPE">HDPE</option>
+            <option value="PP">Polypropylene</option>
+            <option value="multilayer-laminate">Multilayer laminate</option>
+            <option value="aluminum">Aluminum</option>
+            <option value="glass">Glass</option>
+          </select>
+        </div>
+        <div class="mc-field">
+          <div class="mc-label" id="mcWeightLabel">Weight per unit · 25 g</div>
+          <input type="range" min="2" max="500" step="1" value="25" class="mc-range" id="mcWeight">
+        </div>
+        <div class="mc-field">
+          <div class="mc-label" id="mcRecycledLabel">Recycled content · 10%</div>
+          <input type="range" min="0" max="100" step="1" value="10" class="mc-range" id="mcRecycled">
+        </div>
+        <div class="mc-field">
+          <div class="mc-label" id="mcVolumeLabel">Annual units · 1.0M</div>
+          <input type="range" min="100000" max="20000000" step="100000" value="1000000" class="mc-range" id="mcVolume">
+        </div>
+      </div>
+      <div class="mini-calc-outputs">
+        <div class="mc-out-label">↘ Annualised EPR fee (12 markets)</div>
+        <div class="mc-out-val" id="mcAnnual">€0</div>
+        <div class="mc-out-sub" id="mcSub">grade A · 92% recyclable</div>
+
+        <div class="mc-row">
+          <div>
+            <div class="mc-mini-label">€ per 1k units</div>
+            <div class="mc-mini-val" id="mcPerThousand">€0</div>
+          </div>
+          <div>
+            <div class="mc-mini-label">Carbon / pkg</div>
+            <div class="mc-mini-val" id="mcCarbon">0 g</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE GRID -->
+<section id="features">
+  <div class="container">
+    <span class="eyebrow">Built for the rulebook</span>
+    <h2>Six modules. One compliant line.</h2>
+    <p class="lead">Each module maps to a specific PPWR obligation, so the work you do to run a better factory is the same work that satisfies the regulator.</p>
+
+    <div class="feat-grid">
+      <div class="feat">
+        <div class="feat-ico">📊</div>
+        <h3>Real-Time OEE</h3>
+        <p>Per-machine, per-shift, per-product. The single number that tells you whether efficiency improvements stuck.</p>
+        <span class="ppwr-link">Maps to: waste-reduction targets</span>
+      </div>
+      <div class="feat">
+        <div class="feat-ico">♻️</div>
+        <h3>Material Passport Builder</h3>
+        <p>Automatic SKU-level material composition, recycled %, and DfR grade. Click-to-export in EU-compliant format.</p>
+        <span class="ppwr-link">Maps to: Art. 7 recycled content + DPP</span>
+      </div>
+      <div class="feat">
+        <div class="feat-ico">🗑️</div>
+        <h3>Scrap Forensics</h3>
+        <p>Trace every kilo of rejected material back to the machine, operator, batch, and resin grade that produced it.</p>
+        <span class="ppwr-link">Maps to: per-capita waste reduction</span>
+      </div>
+      <div class="feat">
+        <div class="feat-ico">⚙️</div>
+        <h3>Recipe + Changeover Engine</h3>
+        <p>Switch between resin blends without losing 40 minutes to recalibration. Validated against quality every cycle.</p>
+        <span class="ppwr-link">Maps to: rPET / rHDPE deployment</span>
+      </div>
+      <div class="feat">
+        <div class="feat-ico">📋</div>
+        <h3>EPR Fee Forecaster</h3>
+        <p>Run what-if on packaging redesigns. See the modulated fee impact across 27 markets before committing tooling.</p>
+        <span class="ppwr-link">Maps to: modulated EPR fees</span>
+      </div>
+      <div class="feat">
+        <div class="feat-ico">🔒</div>
+        <h3>Audit Vault</h3>
+        <p>Immutable shift logs, batch records, and material flows. When an inspector asks, you answer in seconds, not days.</p>
+        <span class="ppwr-link">Maps to: substantiation of claims</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI -->
+<section class="bg-2">
+  <div class="container">
+    <div class="roi">
+      <span class="eyebrow">The numbers</span>
+      <h2 style="margin: 0 auto 12px;">What happens 90 days after deploying OEEpulse.</h2>
+      <p>Averages across 40+ deployments in food &amp; beverage, personal care, and household goods.</p>
+      <div class="roi-grid">
+        <div class="roi-cell">
+          <div class="roi-num grn">+12pt</div>
+          <div class="roi-label">OEE improvement</div>
+        </div>
+        <div class="roi-cell">
+          <div class="roi-num blu">−34%</div>
+          <div class="roi-label">Scrap rate reduction</div>
+        </div>
+        <div class="roi-cell">
+          <div class="roi-num prp">100%</div>
+          <div class="roi-label">PPWR-ready reporting</div>
+        </div>
+        <div class="roi-cell">
+          <div class="roi-num ylw">&lt;6mo</div>
+          <div class="roi-label">Typical payback</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- READINESS QUIZ -->
+<section id="readiness">
+  <div class="container">
+    <span class="eyebrow">Self-assessment</span>
+    <h2>Are you PPWR-ready? <span class="serif">Six questions.</span></h2>
+    <p class="lead">Honest answers, no email required. You get a score, a verdict, and a punch list of what's still missing.</p>
+
+    <div class="quiz" id="quiz">
+      <div class="quiz-progress"><div class="quiz-progress-fill" id="quizProgress" style="width: 17%;"></div></div>
+      <div class="quiz-step-label" id="quizStepLabel">Question 1 of 6</div>
+      <div class="quiz-question" id="quizQuestion">Loading…</div>
+      <div class="quiz-hint" id="quizHint"></div>
+      <div class="quiz-choices" id="quizChoices"></div>
+      <div class="quiz-controls">
+        <button class="quiz-back" id="quizBack" disabled>← Back</button>
+        <span style="font-size:11px;color:var(--ink-3);">No data leaves your browser.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="bg-2">
+  <div class="container">
+    <span class="eyebrow">Questions, answered</span>
+    <h2>The things manufacturers actually ask.</h2>
+    <p class="lead">Straight answers. No regulatory hand-waving.</p>
+
+    <div class="faq-item">
+      <div class="faq-q">Does PPWR apply to us if we only manufacture, not sell, in the EU?<span class="faq-toggle">+</span></div>
+      <div class="faq-a">Yes. Anyone placing packaging on the EU market is in scope, including importers, fillers, and brand-owners. Pure contract manufacturers feel it through their customers' obligations cascading down the chain.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">We're already ISO 14001. Isn't that enough?<span class="faq-toggle">+</span></div>
+      <div class="faq-a">No. ISO 14001 is a management framework. PPWR is product-specific, with hard numeric thresholds (recycled %, void space, recyclability grade) measured per SKU and per batch. Different evidence, different cadence.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How does an OEE platform help with a packaging regulation?<span class="faq-toggle">+</span></div>
+      <div class="faq-a">PPWR compliance lives in the same data you already need to run an efficient line: what material went into which package, how much was wasted, what came off rejected. OEEpulse captures it once and routes it to both your production dashboards and your compliance reports.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can we deploy on our existing PLCs without rip-and-replace?<span class="faq-toggle">+</span></div>
+      <div class="faq-a">Yes. OEEpulse uses standard protocols (OPC-UA, MQTT, Modbus) and ships with edge connectors for the major brands. Average time from kick-off to first dashboard: 14 days.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What's the penalty for getting PPWR wrong?<span class="faq-toggle">+</span></div>
+      <div class="faq-a">Member states set fines, but the structural cost is worse: non-compliant SKUs get blocked from market, recyclability grade C packaging will be banned outright by 2038, and EPR fees rise automatically with bad grades, every unit, every market, forever.</div>
+    </div>
+  </div>
+</section>
+
+<!-- GLOSSARY -->
+<section id="glossary">
+  <div class="container">
+    <span class="eyebrow">Vocabulary</span>
+    <h2>The PPWR terms <span class="serif">everyone pretends to know</span>.</h2>
+    <p class="lead">Quick reference. Bookmark this section.</p>
+
+    <div class="glossary-grid">
+      <div class="glossary-item"><div class="glossary-term">DPP <span class="glossary-art">Art. 11</span></div><div class="glossary-def">Digital Product Passport. A stable URL (usually behind a QR code) carrying material composition, recycled content, recyclability grade and restricted substance status per SKU. Mandatory from 2027 for most packaging.</div></div>
+      <div class="glossary-item"><div class="glossary-term">DfR grade <span class="glossary-art">Art. 6</span></div><div class="glossary-def">Design for Recyclability classification, A / B / C. Derived from substrate separability, contamination risk, color/decoration load. Grade C packaging is banned from market by 2038.</div></div>
+      <div class="glossary-item"><div class="glossary-term">Modulated EPR fee <span class="glossary-art">Art. 40</span></div><div class="glossary-def">Producer Responsibility fee that scales with how recyclable and decarbonised your packaging is. Grade-A SKUs pay less, restricted-substance flags cost extra. Same SKU, 27 different rates.</div></div>
+      <div class="glossary-item"><div class="glossary-term">Annex II <span class="glossary-art">Art. 5</span></div><div class="glossary-def">The restricted-substance list: PFAS, lead, mercury, cadmium, hexavalent chromium. Any positive detection breaks conformity for that SKU.</div></div>
+      <div class="glossary-item"><div class="glossary-term">Mass-balance <span class="glossary-art">Art. 7</span></div><div class="glossary-def">A chain-of-custody accounting method where recycled content is allocated across a production batch rather than physically segregated. Permitted by PPWR but must be verified.</div></div>
+      <div class="glossary-item"><div class="glossary-term">JRC methodology <span class="glossary-art">Art. 6</span></div><div class="glossary-def">The European Commission Joint Research Centre methodology for assessing recyclability — the official scoring rubric that produces an A/B/C grade. Implementing act expected in 2026.</div></div>
+      <div class="glossary-item"><div class="glossary-term">Void space <span class="glossary-art">Art. 24</span></div><div class="glossary-def">Empty volume inside e-commerce or grouped packaging. Capped at 50%. Drives PPWR-modulated fees up when exceeded.</div></div>
+      <div class="glossary-item"><div class="glossary-term">Conformity declaration <span class="glossary-art">Art. 38/39</span></div><div class="glossary-def">A self-declared, signed document affirming a SKU meets PPWR obligations. Manufacturer retains evidence; notifying bodies audit.</div></div>
+      <div class="glossary-item"><div class="glossary-term">PRO <span class="glossary-art">Art. 45</span></div><div class="glossary-def">Producer Responsibility Organisation — the national scheme that collects EPR fees on behalf of the regulator. CITEO (France), CONAI (Italy), Ecoembes (Spain), ZSVR (Germany).</div></div>
+      <div class="glossary-item"><div class="glossary-term">Substantiation <span class="glossary-art">Art. 38</span></div><div class="glossary-def">The audit trail that proves a claim. PPWR demands every claim ("30% recycled", "recyclable", "PFAS-free") be backed by verifiable data — not just asserted on the label.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="cta">
+  <div class="container">
+    <div class="final-cta">
+      <span class="eyebrow">Get ready</span>
+      <h2>Compliance is coming. <span class="serif">Run a better factory anyway.</span></h2>
+      <p>20 minutes. Live data from your line. Walk away with a concrete PPWR readiness score.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn-primary">Book your readiness audit →</a>
+        <button type="button" id="downloadGuideBtn" class="btn-ghost">Download PPWR field guide</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-row">
+    <div>© 2026 OEEpulse · Educational overview of EU Regulation 2025/40. Not legal advice.</div>
+    <div style="display: flex; gap: 24px;">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Sources</a>
+    </div>
+  </div>
+</footer>
+
+<button class="sticky-cta" id="stickyCta">
+  <span class="sticky-cta-dot"></span>
+  Book a demo
+</button>
+
+<div class="modal-backdrop" id="bookModal">
+  <div class="modal">
+    <button class="modal-close" id="modalCloseBtn">×</button>
+    <div id="modalForm">
+      <h3>Book your readiness audit</h3>
+      <div class="modal-sub">20 minutes. We'll bring questions. You'll bring one SKU. You walk away with a real PPWR readiness score.</div>
+      <form id="bookingForm">
+        <div class="modal-row">
+          <div class="modal-field">
+            <label class="modal-label" for="bookName">Your name</label>
+            <input type="text" id="bookName" class="modal-input" required />
+          </div>
+          <div class="modal-field">
+            <label class="modal-label" for="bookCompany">Company</label>
+            <input type="text" id="bookCompany" class="modal-input" required />
+          </div>
+        </div>
+        <div class="modal-field">
+          <label class="modal-label" for="bookEmail">Work email</label>
+          <input type="email" id="bookEmail" class="modal-input" required />
+        </div>
+        <div class="modal-row">
+          <div class="modal-field">
+            <label class="modal-label" for="bookRole">Role</label>
+            <select id="bookRole" class="modal-input">
+              <option>Compliance / Sustainability</option>
+              <option>Plant Manager</option>
+              <option>Operations</option>
+              <option>Procurement</option>
+              <option>Executive</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="modal-field">
+            <label class="modal-label" for="bookLines">Production lines</label>
+            <select id="bookLines" class="modal-input">
+              <option>1–3</option>
+              <option>4–10</option>
+              <option>11–25</option>
+              <option>25+</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="modal-submit">Request audit slot</button>
+      </form>
+    </div>
+    <div id="modalSuccess" style="display:none;" class="modal-success">
+      <div class="modal-success-icon">✓</div>
+      <h3>Got it</h3>
+      <div class="modal-sub" id="modalSuccessLine">We'll reach out within one working day to schedule.</div>
+      <button class="modal-submit" id="modalCloseBtn2">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script>
+  // ===== Countdown =====
+  const targetDate = new Date('2026-08-12T00:00:00Z').getTime();
+  function tickCountdown() {
+    const now = Date.now();
+    const diff = Math.max(0, targetDate - now);
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const dDays = document.getElementById('d-days');
+    const dHours = document.getElementById('d-hours');
+    const dMins = document.getElementById('d-mins');
+    if (dDays) dDays.textContent = d;
+    if (dHours) dHours.textContent = h;
+    if (dMins) dMins.textContent = m;
+  }
+  tickCountdown(); setInterval(tickCountdown, 30000);
+
+  // ===== FAQ =====
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => item.classList.toggle('open'));
+  });
+
+  // ===== App demo: screen switcher =====
+  const navItems = document.querySelectorAll('.app-nav-item');
+  const screens = document.querySelectorAll('.app-screen');
+  function showScreen(name) {
+    navItems.forEach(n => n.classList.toggle('active', n.dataset.screen === name));
+    screens.forEach(s => s.classList.toggle('active', s.dataset.screen === name));
+    // Scroll demo frame into view if user clicked from a drilldown
+    const frame = document.getElementById('appFrame');
+    if (frame) {
+      const rect = frame.getBoundingClientRect();
+      if (rect.top < 0 || rect.bottom > window.innerHeight) {
+        frame.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  }
+  navItems.forEach(n => n.addEventListener('click', () => showScreen(n.dataset.screen)));
+
+  // ===== Drilldowns (data-go on any element) =====
+  document.querySelectorAll('[data-go]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const dest = el.dataset.go;
+      const grade = el.dataset.grade;
+      if (grade) {
+        // Apply grade filter on Materials
+        applyGradeFilter(grade);
+      }
+      showScreen(dest);
+    });
+  });
+
+  // ===== Materials filter chips =====
+  const matRows = document.querySelectorAll('#matRows tr');
+  const gradeFilterBtns = document.querySelectorAll('[data-grade-filter]');
+  function applyGradeFilter(grade) {
+    gradeFilterBtns.forEach(b => b.classList.toggle('active', b.dataset.gradeFilter === grade || (grade === 'all' && b.dataset.gradeFilter === 'all')));
+    matRows.forEach(r => {
+      const matches = grade === 'all' || r.dataset.grade === grade;
+      r.style.display = matches ? '' : 'none';
+    });
+  }
+  gradeFilterBtns.forEach(b => b.addEventListener('click', () => applyGradeFilter(b.dataset.gradeFilter)));
+
+  // Material row click highlights selected
+  matRows.forEach(r => {
+    r.addEventListener('click', () => {
+      matRows.forEach(o => o.classList.remove('selected'));
+      r.classList.add('selected');
+    });
+  });
+
+  // ===== EPR Forecaster =====
+  const SUBSTRATE_FEE = {
+    paperboard: 0.17, corrugated: 0.14, rPET: 0.28, vPET: 0.34,
+    HDPE: 0.31, PP: 0.33, "multilayer-laminate": 0.62
+  };
+  const SUBSTRATE_LABEL = {
+    paperboard: "Paperboard", corrugated: "Corrugated", rPET: "rPET",
+    vPET: "Virgin PET", HDPE: "HDPE", PP: "Polypropylene",
+    "multilayer-laminate": "Multilayer laminate"
+  };
+  const SUBSTRATE_RECYCLABLE = {
+    paperboard: 92, corrugated: 92, rPET: 88, vPET: 82, HDPE: 80, PP: 70, "multilayer-laminate": 20
+  };
+  const ANNUAL_UNITS = 1_000_000;
+  const MARKETS = 12;
+
+  function formatEur(amount) {
+    if (amount >= 1_000_000) return `€${(amount / 1_000_000).toFixed(2)}M`;
+    if (amount >= 1_000) return `€${(amount / 1_000).toFixed(0)}K`;
+    if (amount >= 10) return `€${amount.toFixed(0)}`;
+    return `€${amount.toFixed(2)}`;
+  }
+
+  function gradeFromInputs(substrate, recycled) {
+    const base = SUBSTRATE_RECYCLABLE[substrate] ?? 50;
+    let recyclability = Math.min(100, base + Math.min(8, recycled * 0.12));
+    if (recyclability >= 80) return { grade: 'A', pct: Math.round(recyclability) };
+    if (recyclability >= 55) return { grade: 'B', pct: Math.round(recyclability) };
+    return { grade: 'C', pct: Math.round(recyclability) };
+  }
+
+  function forecastEPR(substrate, weight, recycled, voidPct) {
+    const base = SUBSTRATE_FEE[substrate] ?? 0.3;
+    const kg = weight / 1000;
+    const baseUnit = base * kg;
+    const { grade } = gradeFromInputs(substrate, recycled);
+    const gradeFactor = grade === 'A' ? 0.8 : grade === 'B' ? 1.0 : 1.55;
+    const recycledFactor = recycled >= 35 ? 0.85 : recycled >= 15 ? 0.95 : 1.15;
+    const voidFactor = voidPct > 50 ? 1.2 : 1.0;
+    const perUnit = baseUnit * gradeFactor * recycledFactor * voidFactor;
+    return { perUnit, annual: perUnit * ANNUAL_UNITS * (MARKETS / 12), grade };
+  }
+
+  const eprSku = document.getElementById('eprSku');
+  const eprSubstrate = document.getElementById('eprSubstrate');
+  const eprWeight = document.getElementById('eprWeight');
+  const eprRecycled = document.getElementById('eprRecycled');
+  const eprVoid = document.getElementById('eprVoid');
+  let eprBaseline = { substrate: 'multilayer-laminate', weight: 22, recycled: 5, voidPct: 12 };
+
+  function syncBaselineFromSku() {
+    const opt = eprSku.selectedOptions[0];
+    eprBaseline = {
+      substrate: opt.dataset.substrate,
+      weight: parseFloat(opt.dataset.weight),
+      recycled: parseInt(opt.dataset.recycled, 10),
+      voidPct: parseInt(opt.dataset.void, 10),
+    };
+    eprSubstrate.value = eprBaseline.substrate;
+    eprWeight.value = eprBaseline.weight;
+    eprRecycled.value = eprBaseline.recycled;
+    eprVoid.value = eprBaseline.voidPct;
+    document.getElementById('eprBaseSubstrate').textContent = SUBSTRATE_LABEL[eprBaseline.substrate];
+    document.getElementById('eprBaseRecycled').textContent = eprBaseline.recycled + '%';
+    const baseGrade = gradeFromInputs(eprBaseline.substrate, eprBaseline.recycled).grade;
+    const baseDfr = document.getElementById('eprBaseDfr');
+    baseDfr.textContent = 'Grade ' + baseGrade;
+    baseDfr.style.color = baseGrade === 'A' ? 'var(--accent)' : baseGrade === 'B' ? 'var(--amber)' : 'var(--rose)';
+    recalcEPR();
+    recalcSuggestions();
+  }
+
+  function recalcEPR() {
+    const subVal = eprSubstrate.value;
+    const wVal = parseFloat(eprWeight.value);
+    const rVal = parseInt(eprRecycled.value, 10);
+    const vVal = parseInt(eprVoid.value, 10);
+
+    document.getElementById('eprWeightLabel').textContent = `Weight · ${wVal} g`;
+    document.getElementById('eprRecycledLabel').textContent = `Recycled content · ${rVal}%`;
+    document.getElementById('eprVoidLabel').textContent = `Void space · ${vVal}%`;
+
+    const baseline = forecastEPR(eprBaseline.substrate, eprBaseline.weight, eprBaseline.recycled, eprBaseline.voidPct);
+    const scenario = forecastEPR(subVal, wVal, rVal, vVal);
+    const delta = scenario.annual - baseline.annual;
+
+    document.getElementById('eprBaseline').textContent = formatEur(baseline.annual);
+    document.getElementById('eprScenario').textContent = formatEur(scenario.annual);
+    const recyclabilityPct = gradeFromInputs(subVal, rVal).pct;
+    document.getElementById('eprScenarioSub').textContent = `grade ${scenario.grade} · ${recyclabilityPct}% recyclable`;
+
+    const deltaEl = document.getElementById('eprDelta');
+    const deltaBox = document.getElementById('eprDeltaBox');
+    const deltaPill = document.getElementById('eprDeltaPill');
+    const scenarioBox = document.getElementById('eprScenarioBox');
+    const deltaSub = document.getElementById('eprDeltaSub');
+    const pctChange = baseline.annual > 0 ? (delta / baseline.annual) * 100 : 0;
+
+    if (delta < 0) {
+      deltaBox.className = 'epr-result green';
+      scenarioBox.className = 'epr-result green';
+      deltaPill.className = 'audit-pill green';
+      deltaPill.textContent = `${formatEur(Math.abs(delta))} saved`;
+      deltaEl.textContent = formatEur(Math.abs(delta));
+      deltaBox.querySelector('.epr-result-label').innerHTML = '↘ Saved annually';
+    } else if (delta > 0) {
+      deltaBox.className = 'epr-result rose';
+      scenarioBox.className = 'epr-result amber';
+      deltaPill.className = 'audit-pill rose';
+      deltaPill.textContent = `+${formatEur(delta)}`;
+      deltaEl.textContent = formatEur(delta);
+      deltaBox.querySelector('.epr-result-label').innerHTML = '↗ Added cost';
+    } else {
+      deltaBox.className = 'epr-result neutral';
+      scenarioBox.className = 'epr-result neutral';
+      deltaPill.className = 'audit-pill neutral';
+      deltaPill.textContent = 'No change';
+      deltaEl.textContent = '€0';
+      deltaBox.querySelector('.epr-result-label').innerHTML = '— No change';
+    }
+    deltaSub.textContent = `Δ ${pctChange.toFixed(1)}%`;
+  }
+
+  function recalcSuggestions() {
+    const baseline = forecastEPR(eprBaseline.substrate, eprBaseline.weight, eprBaseline.recycled, eprBaseline.voidPct);
+    const s1 = forecastEPR('rPET', eprBaseline.weight, 35, eprBaseline.voidPct);
+    const s2 = forecastEPR(eprBaseline.substrate, eprBaseline.weight * 0.8, eprBaseline.recycled, eprBaseline.voidPct);
+    // Suggestion 3: only meaningful when grade lifts after dropping substances
+    const s3 = forecastEPR(eprBaseline.substrate, eprBaseline.weight, eprBaseline.recycled, eprBaseline.voidPct);
+    // Simulate substance drop nudging grade up by reducing grade factor
+    const s3Adj = baseline.annual - (baseline.annual * 0.25); // approx 25% saving
+    const setSug = (id, val) => {
+      const el = document.getElementById(id);
+      const savings = val < 0 ? 0 : val;
+      el.textContent = savings > 0 ? `${formatEur(savings)} saved` : 'No saving';
+      el.className = 'audit-pill ' + (savings > 0 ? 'green' : 'neutral');
+    };
+    setSug('sugg1', baseline.annual - s1.annual);
+    setSug('sugg2', baseline.annual - s2.annual);
+    setSug('sugg3', s3Adj);
+  }
+
+  if (eprSku) {
+    eprSku.addEventListener('change', syncBaselineFromSku);
+    [eprSubstrate, eprWeight, eprRecycled, eprVoid].forEach(el => {
+      el.addEventListener('input', recalcEPR);
+    });
+    syncBaselineFromSku();
+  }
+
+  // ===== Live operator state =====
+  let liveState = {
+    status: 'running', // 'running' | 'break' | 'done'
+    qty: 2100,
+    elapsedSec: 18 * 60 + 14,
+    progress: 70,
+  };
+  function pad(n) { return n.toString().padStart(2, '0'); }
+  function fmtTime(s) {
+    const h = Math.floor(s / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    const sec = s % 60;
+    return `${pad(h)}:${pad(m)}:${pad(sec)}`;
+  }
+  function renderLive() {
+    document.getElementById('liveQty').textContent = liveState.qty.toLocaleString();
+    document.getElementById('liveCarbonQty').textContent = liveState.qty.toLocaleString();
+    document.getElementById('liveCarbon').textContent = ((liveState.qty * 6) / 1000).toFixed(1) + ' kg';
+    document.getElementById('liveTime').textContent = fmtTime(liveState.elapsedSec);
+    const pct = Math.min(100, (liveState.qty / 3000) * 100);
+    liveState.progress = pct;
+    document.getElementById('liveProgress').style.width = pct + '%';
+    document.getElementById('liveProgressLabel').textContent = pct.toFixed(0) + '% complete';
+    document.getElementById('liveProgressNum').textContent = `${liveState.qty.toLocaleString()} / 3,000`;
+    const breakBtn = document.getElementById('liveBreakBtn');
+    const finishBtn = document.getElementById('liveFinishBtn');
+    const statusPill = document.getElementById('liveStatusPill');
+    const phaseEl = document.getElementById('livePhase');
+    const phaseHint = document.getElementById('livePhaseHint');
+    if (liveState.status === 'running') {
+      breakBtn.textContent = '⏸ Log stoppage';
+      breakBtn.className = 'live-btn warn';
+      statusPill.className = 'audit-pill green';
+      statusPill.innerHTML = '<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-right:4px;"></span>Running';
+      phaseEl.textContent = 'Production';
+      phaseHint.textContent = 'counter active';
+    } else if (liveState.status === 'break') {
+      breakBtn.textContent = '▶ Resume';
+      breakBtn.className = 'live-btn brand';
+      statusPill.className = 'audit-pill amber';
+      statusPill.innerHTML = '⚠ Stopped';
+      phaseEl.textContent = 'Stopped';
+      phaseHint.textContent = 'counter paused';
+    } else {
+      breakBtn.disabled = true;
+      finishBtn.disabled = true;
+      statusPill.className = 'audit-pill neutral';
+      statusPill.innerHTML = '✓ Finished';
+      phaseEl.textContent = 'Complete';
+      phaseHint.textContent = 'all units shipped';
+    }
+  }
+  document.getElementById('liveBreakBtn')?.addEventListener('click', () => {
+    if (liveState.status === 'running') {
+      liveState.status = 'break';
+      showToast('Stoppage logged', 'Mechanical · Printing Unit · counter paused');
+      const tl = document.getElementById('liveTimeline');
+      const node = document.createElement('div');
+      node.className = 'timeline-event';
+      const now = new Date();
+      node.innerHTML = `<span class="timeline-time">${pad(now.getHours())}:${pad(now.getMinutes())}</span><span class="timeline-dot stop"></span><span class="timeline-event-label">Stoppage logged (demo)</span>`;
+      tl.appendChild(node);
+    } else if (liveState.status === 'break') {
+      liveState.status = 'running';
+      showToast('Job resumed', 'Counter active again');
+    }
+    renderLive();
+  });
+  document.getElementById('liveFinishBtn')?.addEventListener('click', () => {
+    liveState.status = 'done';
+    liveState.qty = 3000;
+    showToast('Job finished', '3,000 imp · written to Audit Vault');
+    renderLive();
+  });
+
+  // Live counter tick while running and on Live screen
+  setInterval(() => {
+    if (liveState.status === 'running' && document.querySelector('.app-screen[data-screen="live"]').classList.contains('active')) {
+      liveState.elapsedSec += 1;
+      liveState.qty = Math.min(3000, liveState.qty + 12);
+      renderLive();
+    }
+  }, 1000);
+
+  // ===== Audit filter =====
+  const auditFilter = document.getElementById('auditFilter');
+  auditFilter?.addEventListener('change', () => {
+    const v = auditFilter.value;
+    document.querySelectorAll('#auditRows tr').forEach(r => {
+      r.style.display = v === 'all' || r.dataset.cat === v ? '' : 'none';
+    });
+  });
+
+  // ===== Toast =====
+  let toastTimer;
+  function showToast(title, body) {
+    const t = document.getElementById('demoToast');
+    document.getElementById('toastTitle').textContent = title;
+    document.getElementById('toastBody').textContent = body || '';
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  // ===== PPWR Field Guide PDF =====
+  function buildFieldGuide() {
+    if (!window.jspdf || !window.jspdf.jsPDF) {
+      alert("PDF library is still loading. Try again in a moment.");
+      return;
+    }
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: "mm", format: "a4" });
+    const pageW = doc.internal.pageSize.getWidth();
+    const pageH = doc.internal.pageSize.getHeight();
+    const margin = 18;
+    const ink = [10, 10, 10];
+    const ink2 = [82, 82, 82];
+    const ink3 = [115, 115, 115];
+    const accent = [4, 120, 87];
+    const accentSoft = [236, 253, 245];
+    const line = [231, 229, 228];
+    const rose = [190, 18, 60];
+    const amber = [180, 83, 9];
+
+    let page = 1;
+    function footer() {
+      doc.setFontSize(8);
+      doc.setTextColor(...ink3);
+      doc.text(`OEEpulse · PPWR Field Guide`, margin, pageH - 8);
+      doc.text(`p. ${page}`, pageW - margin, pageH - 8, { align: "right" });
+    }
+    function newPage() {
+      footer();
+      doc.addPage();
+      page += 1;
+    }
+    function checkSpace(y, need = 24) {
+      if (y + need > pageH - 16) {
+        newPage();
+        return margin + 8;
+      }
+      return y;
+    }
+    function h1(text, y) {
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(20);
+      doc.setTextColor(...ink);
+      doc.text(text, margin, y);
+      return y + 8;
+    }
+    function h2(text, y) {
+      y = checkSpace(y, 14);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(13);
+      doc.setTextColor(...ink);
+      doc.text(text, margin, y);
+      doc.setDrawColor(...accent);
+      doc.setLineWidth(0.6);
+      doc.line(margin, y + 1.5, margin + 14, y + 1.5);
+      return y + 8;
+    }
+    function p(text, y, opts = {}) {
+      doc.setFont("helvetica", opts.bold ? "bold" : "normal");
+      doc.setFontSize(opts.size ?? 10);
+      doc.setTextColor(...(opts.color ?? ink2));
+      const lines = doc.splitTextToSize(text, pageW - margin * 2);
+      lines.forEach((line) => {
+        y = checkSpace(y, 6);
+        doc.text(line, margin, y);
+        y += (opts.size ?? 10) * 0.45;
+      });
+      return y + 2;
+    }
+    function bullet(text, y) {
+      y = checkSpace(y, 6);
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(10);
+      doc.setTextColor(...ink2);
+      doc.setFillColor(...accent);
+      doc.circle(margin + 1.6, y - 1.4, 0.9, "F");
+      const lines = doc.splitTextToSize(text, pageW - margin * 2 - 6);
+      lines.forEach((ln, i) => {
+        y = checkSpace(y, 5);
+        doc.text(ln, margin + 6, y);
+        y += 4.6;
+      });
+      return y + 1.5;
+    }
+    function tableRow(y, cells, opts = {}) {
+      y = checkSpace(y, 8);
+      const cw = (pageW - margin * 2) / cells.length;
+      if (opts.head) {
+        doc.setFillColor(245, 245, 244);
+        doc.rect(margin, y - 4.5, pageW - margin * 2, 6, "F");
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(8);
+        doc.setTextColor(...ink3);
+      } else {
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(9);
+        doc.setTextColor(...ink);
+      }
+      cells.forEach((c, i) => {
+        doc.text(String(c), margin + i * cw + 2, y);
+      });
+      doc.setDrawColor(...line);
+      doc.setLineWidth(0.2);
+      doc.line(margin, y + 1.5, pageW - margin, y + 1.5);
+      return y + 6;
+    }
+    function box(y, h, fill) {
+      doc.setFillColor(...fill);
+      doc.roundedRect(margin, y, pageW - margin * 2, h, 2, 2, "F");
+    }
+    function callout(label, body, y, tone = "accent") {
+      const palette = tone === "rose" ? [255, 241, 242] : tone === "amber" ? [255, 251, 235] : accentSoft;
+      const labelColor = tone === "rose" ? rose : tone === "amber" ? amber : accent;
+      const lines = doc.splitTextToSize(body, pageW - margin * 2 - 6);
+      const h = 8 + lines.length * 4.5;
+      y = checkSpace(y, h + 4);
+      box(y, h, palette);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(8.5);
+      doc.setTextColor(...labelColor);
+      doc.text(label.toUpperCase(), margin + 3, y + 4.5);
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(9.5);
+      doc.setTextColor(40, 40, 40);
+      lines.forEach((ln, i) => doc.text(ln, margin + 3, y + 9 + i * 4.5));
+      return y + h + 4;
+    }
+
+    // ============ COVER ============
+    doc.setFillColor(...ink);
+    doc.rect(0, 0, pageW, 90, "F");
+    doc.setFillColor(...accent);
+    doc.rect(0, 86, pageW, 4, "F");
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(10);
+    doc.setTextColor(...accentSoft);
+    doc.text("EU REGULATION 2025/40", margin, 30);
+
+    doc.setFontSize(36);
+    doc.setTextColor(255, 255, 255);
+    doc.text("PPWR", margin, 52);
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(22);
+    doc.text("Field Guide", margin, 64);
+
+    doc.setFontSize(11);
+    doc.setTextColor(220, 220, 220);
+    doc.text("For packaging manufacturers, compliance officers and operators", margin, 76);
+
+    let y = 110;
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.setTextColor(...ink2);
+    doc.text(
+      "A practical, no-nonsense reference to the EU Packaging and",
+      margin,
+      y,
+    );
+    doc.text("Packaging Waste Regulation. Every deadline, every threshold,", margin, y + 5);
+    doc.text("every action you can take this quarter.", margin, y + 10);
+    y += 22;
+
+    doc.setFillColor(...accentSoft);
+    doc.roundedRect(margin, y, pageW - margin * 2, 30, 2, 2, "F");
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(9);
+    doc.setTextColor(...accent);
+    doc.text("WHAT'S INSIDE", margin + 5, y + 7);
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(9.5);
+    doc.setTextColor(40, 40, 40);
+    doc.text("1.  Compliance timeline", margin + 5, y + 14);
+    doc.text("2.  Six obligations decoded", margin + 5, y + 19);
+    doc.text("3.  Substrate & EPR cheat sheet", margin + 5, y + 24);
+    doc.text("4.  Restricted substances (Annex II)", pageW / 2 + 5, y + 14);
+    doc.text("5.  Self-check before 2026", pageW / 2 + 5, y + 19);
+    doc.text("6.  Resources", pageW / 2 + 5, y + 24);
+    y += 40;
+
+    doc.setFont("helvetica", "italic");
+    doc.setFontSize(8);
+    doc.setTextColor(...ink3);
+    doc.text(
+      `Issued ${new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })} · This guide is educational, not legal advice.`,
+      margin,
+      pageH - 16,
+    );
+
+    newPage();
+    y = margin + 8;
+
+    // ============ PAGE: TIMELINE ============
+    y = h1("1.  Compliance timeline", y);
+    y = p(
+      "PPWR is directly applicable in all 27 EU member states. No national transposition needed - the clock starts everywhere at once.",
+      y,
+    );
+    y += 2;
+
+    const milestones = [
+      ["Feb 2025", "Regulation in force", "Direct applicability across 27 member states. 18-month grace begins."],
+      ["Aug 2026", "Core obligations apply", "Recyclability assessments, substance restrictions, reporting begin to bite."],
+      ["Jan 2030", "Recycled content + reuse", "10-35% min recycled content for plastic. Reuse targets for transport, beverage, grouped packaging."],
+      ["Jan 2030", "Recyclability grading", "A/B/C grading applies. Modulated EPR fees follow."],
+      ["Jan 2038", "Grade C ban", "Grade C packaging banned from market."],
+      ["Jan 2040", "Full-scale targets", "65% beverage reuse, 90% separate collection, 15% per-capita waste reduction."],
+    ];
+    milestones.forEach(([date, title, body]) => {
+      y = checkSpace(y, 16);
+      doc.setFillColor(...accent);
+      doc.circle(margin + 1.5, y - 1, 1.4, "F");
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(9);
+      doc.setTextColor(...accent);
+      doc.text(date.toUpperCase(), margin + 6, y);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(11);
+      doc.setTextColor(...ink);
+      doc.text(title, margin + 30, y);
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(9);
+      doc.setTextColor(...ink2);
+      const lines = doc.splitTextToSize(body, pageW - margin * 2 - 30);
+      lines.forEach((ln, i) => doc.text(ln, margin + 30, y + 5 + i * 4.2));
+      y += 5 + lines.length * 4.2 + 4;
+    });
+
+    y = callout(
+      "Critical date",
+      "August 2026: the 18-month grace period ends. If you only do one thing this year, it's mapping your SKUs against the recyclability + restricted-substance rules.",
+      y,
+      "rose",
+    );
+
+    newPage();
+    y = margin + 8;
+
+    // ============ PAGE: SIX OBLIGATIONS ============
+    y = h1("2.  Six obligations, decoded", y);
+    y = p(
+      "PPWR contains 20+ distinct compliance surfaces. These six cover the cases that hit production lines the hardest.",
+      y,
+    );
+    y += 2;
+
+    const obligations = [
+      {
+        art: "Art. 6 - Recyclability",
+        body: "All packaging must be assessed and graded A/B/C using JRC methodology. Grade C banned from 2038.",
+        action: "Build a Design-for-Recycling scoring matrix per SKU. Track grade migration toward A.",
+      },
+      {
+        art: "Art. 7 - Recycled content",
+        body: "Minimum recycled content per type: 35% for contact-sensitive PET, 10-25% for plastic in general by 2030. Verified, not asserted.",
+        action: "Capture chain-of-custody (mass-balance or segregated) per material lot. Keep supplier certificates current.",
+      },
+      {
+        art: "Art. 5 + Annex II - Restricted substances",
+        body: "PFAS, lead, mercury, cadmium, hexavalent chromium are restricted. Any presence flips a SKU from compliant to non-compliant.",
+        action: "Get supplier declarations on file. Audit ink, adhesive, lacquer suppliers especially.",
+      },
+      {
+        art: "Art. 24 - Empty space",
+        body: "Maximum 50% void in e-commerce and grouped packaging. Lighter is also better for EPR fees.",
+        action: "Measure void for every shipping SKU. Tune box sizes. Lightweight where structural margin allows.",
+      },
+      {
+        art: "Art. 11 + 12 - Digital Product Passport",
+        body: "Each SKU must carry a QR / data-carrier linking to material composition, recycled content, instructions, restricted-substance status.",
+        action: "Generate DPP at point of artwork approval. URL must be public and stable for the SKU lifetime.",
+      },
+      {
+        art: "Art. 38/39 - Conformity declarations",
+        body: "Manufacturer self-declares conformity, retains substantiation. Notifying bodies will audit.",
+        action: "Keep an append-only audit trail tying batches to material readings, operators, supplier lots.",
+      },
+    ];
+    obligations.forEach((o) => {
+      y = checkSpace(y, 28);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(10);
+      doc.setTextColor(...accent);
+      doc.text(o.art, margin, y);
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(9.5);
+      doc.setTextColor(...ink);
+      const bl = doc.splitTextToSize(o.body, pageW - margin * 2);
+      bl.forEach((ln, i) => doc.text(ln, margin, y + 4 + i * 4.5));
+      y += 4 + bl.length * 4.5 + 1;
+      doc.setFont("helvetica", "italic");
+      doc.setFontSize(9);
+      doc.setTextColor(...ink3);
+      doc.text("Action:", margin, y + 3);
+      doc.setFont("helvetica", "normal");
+      const al = doc.splitTextToSize(o.action, pageW - margin * 2 - 16);
+      al.forEach((ln, i) => doc.text(ln, margin + 16, y + 3 + i * 4.3));
+      y += al.length * 4.3 + 8;
+    });
+
+    newPage();
+    y = margin + 8;
+
+    // ============ PAGE: SUBSTRATE CHEAT SHEET ============
+    y = h1("3.  Substrate & EPR cheat sheet", y);
+    y = p(
+      "Approximate 2024 EU PRO tariffs in EUR per kilogram, baseline before grade and recycled-content modulators. Use as a sales-side what-if, not as a legal filing.",
+      y,
+    );
+    y += 2;
+
+    y = tableRow(y, ["Substrate", "Base EPR (€/kg)", "Recyclability", "PPWR risk"], { head: true });
+    [
+      ["Paperboard", "0.17", "High (92%)", "Low"],
+      ["Corrugated", "0.14", "High (92%)", "Low"],
+      ["rPET", "0.28", "High (88%)", "Low"],
+      ["Virgin PET", "0.34", "Med-high (82%)", "Med - needs recycled content lift"],
+      ["HDPE", "0.31", "Medium (80%)", "Med"],
+      ["LDPE", "0.39", "Lower (55%)", "Med-high"],
+      ["PP", "0.33", "Medium (70%)", "Med"],
+      ["PS", "0.46", "Low (35%)", "High - phasing out"],
+      ["Glass", "0.05", "Very high (95%)", "Very low"],
+      ["Aluminum", "0.22", "Very high (93%)", "Low - high carbon though"],
+      ["Multilayer laminate", "0.62", "Very low (20%)", "Critical - 2038 ban risk"],
+    ].forEach((row) => {
+      y = tableRow(y, row);
+    });
+
+    y += 4;
+    y = h2("Grade and recycled modulators", y);
+    y = p("Total EPR fee = base x weight x grade factor x recycled factor x void factor.", y, { bold: true });
+    y = bullet("DfR Grade A: x 0.8 fee multiplier.  Grade B: x 1.0.  Grade C: x 1.55.", y);
+    y = bullet("Recycled content >= 35%: x 0.85.  >= 15%: x 0.95.  < 15%: x 1.15.", y);
+    y = bullet("Void > 50%: x 1.2.  Each restricted substance present: + 25% per hit.", y);
+
+    newPage();
+    y = margin + 8;
+
+    // ============ PAGE: RESTRICTED SUBSTANCES ============
+    y = h1("4.  Restricted substances (Annex II)", y);
+    y = p(
+      "Any positive detection breaks conformity. Get a written declaration from every material supplier on file.",
+      y,
+    );
+    y += 2;
+
+    y = tableRow(y, ["Substance", "Code", "Common source in packaging"], { head: true });
+    [
+      ["Per- and polyfluoroalkyl substances", "PFAS", "Grease-proofing in food paper, coatings, release liners"],
+      ["Lead", "Pb", "Pigments, stabilisers in older PVC and inks"],
+      ["Cadmium", "Cd", "Yellow/orange pigments, PVC stabilisers"],
+      ["Mercury", "Hg", "Trace contamination in recycled material; uncommon now"],
+      ["Hexavalent chromium", "Cr(VI)", "Surface treatments, metallised coatings"],
+    ].forEach((row) => {
+      y = tableRow(y, row);
+    });
+
+    y = callout(
+      "Audit-first checklist",
+      "PFAS is the most common surprise. Coated paperboard (food contact, oven-safe, microwave) is the usual suspect. Audit there before launching any rework programme.",
+      y + 4,
+      "amber",
+    );
+
+    y = h2("Common claims that fail substantiation", y);
+    y = bullet('"30% recycled content" with no chain-of-custody certificate from supplier.', y);
+    y = bullet('"Recyclable" label without a DfR grade assessment per JRC methodology.', y);
+    y = bullet('"PFAS-free" without a written supplier declaration covering inks, lacquers, adhesives.', y);
+    y = bullet('"Compostable" without an EN 13432 certificate.', y);
+
+    newPage();
+    y = margin + 8;
+
+    // ============ PAGE: SELF-CHECK ============
+    y = h1("5.  Self-check before August 2026", y);
+    y = p(
+      "30-minute audit of your top 10 SKUs. Print this list, walk to the plant, fill it out.",
+      y,
+    );
+    y += 2;
+
+    const checklist = [
+      "Each SKU has a material specification on file, dated within the last 12 months.",
+      "Recycled-content claim has a supplier certificate attached, currently valid.",
+      "Restricted-substance declarations are on file for every input material (substrate, ink, lacquer, adhesive).",
+      "Recyclability assessment (A/B/C) exists for every SKU shipped into the EU.",
+      "E-commerce / grouped SKUs measured for void space below 50%.",
+      "Weight measured per SKU and tracked over time (light-weighting trajectory documented).",
+      "Digital Product Passport URL allocated per SKU; QR code on artwork or label.",
+      "Audit trail captures: batch -> material lot -> supplier certificate -> operator -> machine.",
+      "Annual production volume per market is tracked for Article 56 reporting.",
+      "Conformity declaration template ready, signed, version-controlled.",
+    ];
+    checklist.forEach((item, i) => {
+      y = checkSpace(y, 9);
+      doc.setDrawColor(...ink3);
+      doc.setLineWidth(0.4);
+      doc.rect(margin, y - 3.5, 4, 4);
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(9.5);
+      doc.setTextColor(...ink);
+      const lines = doc.splitTextToSize(`${i + 1}.  ${item}`, pageW - margin * 2 - 8);
+      lines.forEach((ln, j) => doc.text(ln, margin + 6, y + j * 4.5));
+      y += lines.length * 4.5 + 3;
+    });
+
+    y = h2("If you tick fewer than 7", y);
+    y = p(
+      "Start with material specifications. Without those, every other obligation is uncheckable. Then chain-of-custody on recycled content (the most-audited claim).",
+      y,
+    );
+
+    newPage();
+    y = margin + 8;
+
+    // ============ PAGE: RESOURCES ============
+    y = h1("6.  Resources", y);
+
+    y = h2("Primary text", y);
+    y = bullet("Regulation (EU) 2025/40 of the European Parliament and of the Council on packaging and packaging waste.", y);
+    y = bullet("EU Commission JRC: Recyclability assessment methodology (implementing act, expected 2026).", y);
+
+    y = h2("Industry references", y);
+    y = bullet("EUROPEN - The European Organization for Packaging and the Environment.", y);
+    y = bullet("CEFLEX - Circular Economy for Flexible Packaging.", y);
+    y = bullet("Plastics Recyclers Europe - RecyClass design guidelines.", y);
+
+    y = h2("Producer Responsibility Organisations (selection)", y);
+    y = bullet("France: CITEO  -  Italy: CONAI  -  Spain: Ecoembes  -  Germany: ZSVR  -  Belgium: Fost Plus.", y);
+
+    y += 8;
+    y = callout(
+      "How OEEpulse helps",
+      "OEEpulse turns the data you already collect on the line - speed, counter, material lot, operator, breakdown reason - into the substantiation a regulator asks for. The Material Passport, EPR Forecaster and Audit Vault each map to a specific PPWR article.",
+      y,
+    );
+
+    footer();
+    doc.save("OEEpulse-PPWR-Field-Guide.pdf");
+  }
+
+  document.getElementById('downloadGuideBtn')?.addEventListener('click', buildFieldGuide);
+
+  // ===== Mini EPR calculator =====
+  const MC_BASE_FEE = {
+    paperboard: 0.17, corrugated: 0.14, rPET: 0.28, vPET: 0.34,
+    HDPE: 0.31, PP: 0.33, "multilayer-laminate": 0.62, aluminum: 0.22, glass: 0.05
+  };
+  const MC_RECYCLABLE = {
+    paperboard: 92, corrugated: 92, rPET: 88, vPET: 82, HDPE: 80, PP: 70,
+    "multilayer-laminate": 20, aluminum: 93, glass: 95
+  };
+  const MC_CARBON = {
+    paperboard: 1.2, corrugated: 0.95, rPET: 1.1, vPET: 2.6,
+    HDPE: 1.9, PP: 2.0, "multilayer-laminate": 3.8, aluminum: 11.5, glass: 0.85
+  };
+  const mcSubstrate = document.getElementById('mcSubstrate');
+  const mcWeight = document.getElementById('mcWeight');
+  const mcRecycled = document.getElementById('mcRecycled');
+  const mcVolume = document.getElementById('mcVolume');
+
+  function fmtEur(n) {
+    if (n >= 1_000_000) return `€${(n/1_000_000).toFixed(2)}M`;
+    if (n >= 1_000) return `€${(n/1_000).toFixed(0)}K`;
+    if (n >= 10) return `€${n.toFixed(0)}`;
+    return `€${n.toFixed(2)}`;
+  }
+  function fmtVolume(n) {
+    if (n >= 1_000_000) return `${(n/1_000_000).toFixed(1)}M`;
+    return `${(n/1_000).toFixed(0)}K`;
+  }
+
+  function recalcMiniCalc() {
+    if (!mcSubstrate) return;
+    const sub = mcSubstrate.value;
+    const w = parseFloat(mcWeight.value);
+    const r = parseInt(mcRecycled.value, 10);
+    const v = parseInt(mcVolume.value, 10);
+
+    document.getElementById('mcWeightLabel').textContent = `Weight per unit · ${w} g`;
+    document.getElementById('mcRecycledLabel').textContent = `Recycled content · ${r}%`;
+    document.getElementById('mcVolumeLabel').textContent = `Annual units · ${fmtVolume(v)}`;
+
+    const baseFee = MC_BASE_FEE[sub];
+    const baseRecyclability = MC_RECYCLABLE[sub];
+    const recyclability = Math.min(100, baseRecyclability + Math.min(8, r * 0.12));
+    const grade = recyclability >= 80 ? 'A' : recyclability >= 55 ? 'B' : 'C';
+    const gradeFactor = grade === 'A' ? 0.8 : grade === 'B' ? 1.0 : 1.55;
+    const recycledFactor = r >= 35 ? 0.85 : r >= 15 ? 0.95 : 1.15;
+
+    const perUnit = baseFee * (w/1000) * gradeFactor * recycledFactor;
+    const annual = perUnit * v;
+    const carbon = MC_CARBON[sub] * (1 - (r/100) * 0.6) * w;
+
+    document.getElementById('mcAnnual').textContent = fmtEur(annual);
+    document.getElementById('mcPerThousand').textContent = fmtEur(perUnit * 1000);
+    document.getElementById('mcCarbon').textContent = `${carbon.toFixed(0)} g`;
+    document.getElementById('mcSub').textContent = `grade ${grade} · ${Math.round(recyclability)}% recyclable`;
+  }
+
+  if (mcSubstrate) {
+    [mcSubstrate, mcWeight, mcRecycled, mcVolume].forEach(el => {
+      el.addEventListener('input', recalcMiniCalc);
+      el.addEventListener('change', recalcMiniCalc);
+    });
+    recalcMiniCalc();
+  }
+
+  // ===== Readiness quiz =====
+  const quizQuestions = [
+    { q: "Do you have a documented material specification for every SKU you ship into the EU?", hint: "Substrate, weight, recycled content, supplier — dated within 12 months.", c: [["Yes, for every SKU", 1], ["For most", 0.5], ["No", 0]] },
+    { q: "Can you produce a chain-of-custody certificate for your recycled-content claims?", hint: "Mass-balance, segregated, or percentage — verified by a third party.", c: [["Yes", 1], ["For some", 0.5], ["No", 0]] },
+    { q: "Have you screened your inputs (substrates, inks, lacquers, adhesives) for PFAS and Annex II substances?", hint: "Written declarations from each supplier.", c: [["All inputs", 1], ["Substrate only", 0.5], ["Not yet", 0]] },
+    { q: "Does each SKU have a recyclability assessment (A / B / C) using the JRC methodology?", hint: "Article 6 / DfR — not a vague claim like \"recyclable\".", c: [["All SKUs", 1], ["Some", 0.5], ["None", 0]] },
+    { q: "Could you produce a Digital Product Passport for any SKU on demand?", hint: "QR code + stable URL + JSON payload — Article 11 / 12.", c: [["Yes, one click", 1], ["Manual, but possible", 0.5], ["No", 0]] },
+    { q: "If a regulator visited tomorrow, could you reconstruct every batch, operator, and material lot for the past year?", hint: "Append-only audit trail, exportable as CSV/JSON.", c: [["Within an hour", 1], ["Within a week", 0.5], ["No", 0]] },
+  ];
+  let quizStep = 0;
+  const quizAnswers = new Array(quizQuestions.length).fill(null);
+  const quizContainer = document.getElementById('quiz');
+
+  function renderQuiz() {
+    if (!quizContainer) return;
+    if (quizStep < quizQuestions.length) {
+      const q = quizQuestions[quizStep];
+      document.getElementById('quizProgress').style.width = `${((quizStep + 1) / quizQuestions.length) * 100}%`;
+      document.getElementById('quizStepLabel').textContent = `Question ${quizStep + 1} of ${quizQuestions.length}`;
+      document.getElementById('quizQuestion').textContent = q.q;
+      document.getElementById('quizHint').textContent = q.hint;
+      document.getElementById('quizBack').disabled = quizStep === 0;
+      const choices = document.getElementById('quizChoices');
+      choices.innerHTML = '';
+      q.c.forEach(([label, score]) => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-choice';
+        btn.textContent = label;
+        btn.addEventListener('click', () => {
+          quizAnswers[quizStep] = score;
+          quizStep += 1;
+          renderQuiz();
+        });
+        choices.appendChild(btn);
+      });
+    } else {
+      renderQuizResult();
+    }
+  }
+
+  function renderQuizResult() {
+    const totalScore = quizAnswers.reduce((a, b) => a + (b ?? 0), 0);
+    const pct = Math.round((totalScore / quizQuestions.length) * 100);
+    let verdict, sub, tone;
+    if (pct >= 80) { verdict = "Ready ✓"; sub = "You're ahead of most. Use the runway until Aug 2026 to deepen substantiation and start generating DPPs."; tone = "green"; }
+    else if (pct >= 50) { verdict = "Halfway there"; sub = "Foundation in place but key obligations are still informal. Pick the gaps below and close them this quarter."; tone = "amber"; }
+    else { verdict = "Starting line"; sub = "Material chain-of-custody and audit trail are missing. The Aug 2026 deadline gives you ~9 months."; tone = "rose"; }
+
+    const gapTexts = [
+      "Build a material spec template and require it for every new SKU.",
+      "Get chain-of-custody certificates from every recycled-material supplier.",
+      "Send Annex II declaration requests to all input suppliers (ink, lacquer, adhesive, substrate).",
+      "Run JRC-style recyclability scoring on your top-volume SKUs.",
+      "Allocate a stable URL per SKU. Generate QR codes at artwork approval.",
+      "Set up an append-only audit log tying batches to material lots and operators.",
+    ];
+    const gaps = quizAnswers
+      .map((s, i) => ({ s, i }))
+      .filter(({ s }) => (s ?? 0) < 1)
+      .map(({ i }) => gapTexts[i]);
+
+    const accentColor = tone === "green" ? "var(--accent)" : tone === "amber" ? "var(--amber)" : "var(--rose)";
+
+    quizContainer.innerHTML = `
+      <div class="quiz-result">
+        <div class="quiz-score" style="color: ${accentColor};">${pct}<span class="quiz-score-out-of">/100</span></div>
+        <div class="quiz-verdict">${verdict}</div>
+        <div class="quiz-verdict-sub">${sub}</div>
+        ${gaps.length > 0 ? `
+        <div class="quiz-gaps">
+          <h4>What to close next</h4>
+          ${gaps.map(g => `<div class="quiz-gap"><span class="quiz-gap-icon">!</span><span>${g}</span></div>`).join('')}
+        </div>
+        ` : `<div class="quiz-gaps"><h4>Nothing flagged</h4><div class="quiz-gap"><span style="color:var(--accent);">✓</span><span>Every checkpoint is covered. Keep that audit log warm.</span></div></div>`}
+        <button class="quiz-restart" id="quizRestart">Take the quiz again</button>
+      </div>
+    `;
+    document.getElementById('quizRestart').addEventListener('click', () => {
+      quizStep = 0;
+      for (let i = 0; i < quizAnswers.length; i++) quizAnswers[i] = null;
+      quizContainer.innerHTML = `
+        <div class="quiz-progress"><div class="quiz-progress-fill" id="quizProgress"></div></div>
+        <div class="quiz-step-label" id="quizStepLabel"></div>
+        <div class="quiz-question" id="quizQuestion"></div>
+        <div class="quiz-hint" id="quizHint"></div>
+        <div class="quiz-choices" id="quizChoices"></div>
+        <div class="quiz-controls">
+          <button class="quiz-back" id="quizBack">← Back</button>
+          <span style="font-size:11px;color:var(--ink-3);">No data leaves your browser.</span>
+        </div>
+      `;
+      bindQuizControls();
+      renderQuiz();
+    });
+  }
+
+  function bindQuizControls() {
+    document.getElementById('quizBack')?.addEventListener('click', () => {
+      if (quizStep > 0) {
+        quizStep -= 1;
+        renderQuiz();
+      }
+    });
+  }
+  if (quizContainer) {
+    bindQuizControls();
+    renderQuiz();
+  }
+
+  // ===== Sticky CTA + modal =====
+  const stickyCta = document.getElementById('stickyCta');
+  const bookModal = document.getElementById('bookModal');
+  const modalForm = document.getElementById('modalForm');
+  const modalSuccess = document.getElementById('modalSuccess');
+
+  function openModal() {
+    bookModal.classList.add('show');
+    modalForm.style.display = '';
+    modalSuccess.style.display = 'none';
+  }
+  function closeModal() {
+    bookModal.classList.remove('show');
+  }
+
+  stickyCta?.addEventListener('click', openModal);
+  document.getElementById('modalCloseBtn')?.addEventListener('click', closeModal);
+  document.getElementById('modalCloseBtn2')?.addEventListener('click', closeModal);
+  bookModal?.addEventListener('click', (e) => {
+    if (e.target === bookModal) closeModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && bookModal.classList.contains('show')) closeModal();
+  });
+
+  // Route the existing "Book your readiness audit" / "Book a 20-min demo" buttons to the modal
+  document.querySelectorAll('.btn-primary, .nav-cta').forEach(btn => {
+    if (btn.textContent.toLowerCase().includes('book') || btn.textContent.toLowerCase().includes('demo')) {
+      btn.addEventListener('click', (e) => {
+        if (btn.getAttribute('href') === '#cta') return; // let the scroll work
+        e.preventDefault();
+        openModal();
+      });
+    }
+  });
+
+  document.getElementById('bookingForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('bookName').value || 'there';
+    document.getElementById('modalSuccessLine').textContent = `Thanks, ${name.split(' ')[0]}. We'll reach out within one working day to schedule.`;
+    modalForm.style.display = 'none';
+    modalSuccess.style.display = '';
+  });
+
+  // Show sticky CTA after scrolling past hero
+  const hero = document.querySelector('.hero');
+  if (hero && stickyCta) {
+    window.addEventListener('scroll', () => {
+      const rect = hero.getBoundingClientRect();
+      if (rect.bottom < 100) stickyCta.classList.add('show');
+      else stickyCta.classList.remove('show');
+    });
+  }
+
+  // ===== Count-up animation on stat cards =====
+  const statNumbers = document.querySelectorAll('.stat-num');
+  function animateNum(el) {
+    const text = el.textContent.trim();
+    // Extract leading number; preserve prefix/suffix
+    const match = text.match(/^([^\d-]*)(-?[\d.]+)(.*)$/);
+    if (!match) return;
+    const prefix = match[1];
+    const value = parseFloat(match[2]);
+    const suffix = match[3];
+    if (isNaN(value)) return;
+    const duration = 1100;
+    const start = performance.now();
+    const startValue = 0;
+    function frame(t) {
+      const p = Math.min(1, (t - start) / duration);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const current = startValue + (value - startValue) * eased;
+      const formatted = Number.isInteger(value) ? Math.round(current).toString() : current.toFixed(1);
+      el.textContent = prefix + formatted + suffix;
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !e.target.dataset.animated) {
+        e.target.dataset.animated = '1';
+        animateNum(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  statNumbers.forEach(el => statObserver.observe(el));
+</script>
+
+</body>
+</html>
